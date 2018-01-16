@@ -1,0 +1,53 @@
+.typing {
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  left: 650px;
+  display: none;
+  .tip {
+    color: #b1b1b1;
+    font-size: 14px;
+  }
+}
+
+.console {
+  font-size: 16px;
+  line-height: 28px;
+  border-radius: 3px;
+  box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.18), -2px 1px 3px rgba(0, 0, 0, 0.18), 0px 2px 3px rgba(0, 0, 0, 0.18);
+  background: #000;
+  color: #2acb3a;
+  .header {
+    height: 28px;
+    background: #e0e0e0;
+    span {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 6px;
+      margin: 0 5px;
+      overflow: hidden;
+    }
+    .red {
+      background: #fb4947;
+    }
+    .yellow {
+      background: #feb525;
+    }
+    .green {
+      background: #2acb34;
+    }
+  }
+  .body {
+    padding: 5px 10px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    padding: 0 15px;
+  }
+  a {
+    color: #feb525;
+  }
+}

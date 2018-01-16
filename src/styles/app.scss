@@ -1,0 +1,110 @@
+@import 'param';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background: #f9f9f9;
+  height: 100%;
+}
+body {
+  min-width: 320px;
+  min-height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: $footer-height;
+  background: #fff;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', 'Helvetica', tahoma, 'Hiragino Sans GB', 'PingFang SC', 'STHeitiSC-Light',
+    'Microsoft YaHei', Arial, sans-serif;
+}
+body a {
+  text-decoration: none;
+  &:hover {
+    color: #148a1a;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+ul,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.main {
+  padding-top: 56px;
+}
+
+.blue {
+  color: #1890ff;
+}
+
+.green {
+  color: #52c41a;
+}
+
+.purple {
+  color: #722ed1;
+}
+
+.red {
+  color: #f5222d;
+}
+
+.clear:after {
+  display: block;
+  clear: both;
+  content: '\20';
+  height: 0;
+}
+
+.hljs {
+  color: #666;
+}
+
+.markdown-body {
+  .center {
+    margin: 0 auto;
+    display: block;
+  }
+  .thumb {
+    width: 200px;
+  }
+  .tip {
+    color: #888;
+  }
+  code {
+    background-color: #abe090;
+    color: #333;
+  }
+}
+
+video {
+  width: 100%;
+  margin: 10px 0 20px;
+  .not-support {
+    line-height: 50px;
+    text-align: center;
+    color: #f00;
+    border: 1px solid #ddd;
+    padding: 50px;
+  }
+}

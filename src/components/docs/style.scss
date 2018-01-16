@@ -1,0 +1,45 @@
+@import '~styles/param';
+.main {
+  margin: 0 auto;
+  max-width: $nav-width;
+  min-height: 400px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.aside {
+  padding: 30px 0 0 20px;
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 56px;
+  border-right: 1px solid #e6e6e6;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.2);
+  li {
+    list-style: none;
+    a {
+      display: block;
+      font-size: 14px;
+      color: #585858;
+      height: 30px;
+      line-height: 30px;
+      padding-left: 8px;
+      &.highlight {
+        background: #d9f7be;
+        color: #22ab28;
+        padding-left: 5px;
+        border-left: 3px solid #237804;
+      }
+    }
+  }
+}
+
+.content {
+  margin: 0 auto;
+  max-width: $nav-width;
+  min-height: 400px;
+  overflow: hidden;
+  background: #fff;
+  padding: 30px 50px 50px 270px;
+}

@@ -1,0 +1,42 @@
+@import '~styles/param';
+.footer {
+  color: #6e717c;
+  background: #f9f9f9;
+  border-top: 1px solid #e6e6e6;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: $footer-height;
+  a {
+    color: #6e717c;
+  }
+  .content {
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 30px 50px;
+  }
+  dt {
+    font-size: 16px;
+    color: #1e1e1e;
+    line-height: 22px;
+    margin-bottom: 10px;
+  }
+  dd {
+    line-height: 25px;
+    color: #6d6d6d;
+  }
+  li {
+    float: left;
+    margin-right: 100px;
+    list-style: none;
+  }
+
+  .right {
+    float: right;
+    img {
+      width: 54px;
+      margin: 30px 0 0 20px;
+    }
+  }
+}
