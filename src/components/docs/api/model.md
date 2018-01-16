@@ -1,6 +1,6 @@
 # model
 
-所谓 model 3，是一个整合了 redux 的 state、action、reducer（含同步、异步）、dispatch、contant 管理功能的集合体，开发者不要为了修改一个小功能频繁的在多个文件甚至目录之间切换，带来体力和脑力的开销。
+所谓 model，是一个整合了 redux 的 state、action、reducer（含同步、异步）、dispatch、contant 管理功能的集合体，开发者不要为了修改一个小功能频繁的在多个文件甚至目录之间切换，带来体力和脑力的开销。
 
 model 由 <a href="https://github.com/gem-mine/cat-eye" target="_blank">cat-eye</a> 提供，model 层设计重度参考了 <a href="https://github.com/mirrorjs/mirror" target="_blank">mirror</a>，如果你熟悉 mirror，那么你会觉得这里的设计格外亲切。遇到下面一些概念的迷惑（actions、reducers、effects），亦可以参考 mirror 的文档 <a href="https://github.com/mirrorjs/mirror/blob/master/docs/zh/api.md" target="_blank">mirror API</a>
 
