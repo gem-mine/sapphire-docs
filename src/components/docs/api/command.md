@@ -34,6 +34,14 @@ gem-mine update
 ├── config
 │     ├── webpack
 │     ├── webpack.js
+├── package.json
+```
+
+package.json 文件只会添加要增加的依赖包，并对依赖进行安装。如果需要更新 public 目录，请使用 --with_public 选项：
+
+```
+# 在项目根目录下执行：
+gem-mine update --with_public
 ```
 
 **重要：覆盖处理前，请务必确保已经将代码 commit 到 git 仓库，否则上述涉及的文件会被覆盖**

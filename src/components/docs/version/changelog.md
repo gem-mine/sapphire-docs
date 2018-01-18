@@ -2,6 +2,10 @@
 
 * `2018年01月18日`
 
+  * gem-mine 0.1.9
+    * gem-mine update 命令自动处理增加的包，更新 package.json，自动更新依赖
+    * gem-mine update 支持 --with_public 选项，此时会自动更新 public 目录
+
   * gem-mine-template
     * npm start 端口冲突时，自动选择可用端口
   * gem-mine-docs

@@ -8,13 +8,13 @@
   margin: 0 auto;
 
   .box {
-    top: 30%;
-    transform: translateY(-30%);
+    top: calc(50% - 160px);
     position: absolute;
   }
   .info {
     position: absolute;
     width: 420px;
+    left: 20px;
   }
 
   .logo {

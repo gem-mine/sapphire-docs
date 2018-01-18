@@ -33,6 +33,7 @@ export default props => {
             </NavLink>
           </li>
         </ul>
+        <a href="http://github.com/gem-mine/gem-mine" target="_blank" className={style.version} />
       </div>
     </div>
   )
