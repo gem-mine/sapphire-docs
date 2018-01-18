@@ -11,13 +11,13 @@ exports.resolve = {
 exports.buildPath = path.resolve(__dirname, '../docs')
 
 // todo: 静态资源路径配置, 如果有 cdn 支持，可以配置到 cdn，对本地开发无效
-// exports.publicPath = './';
+// exports.publicPath = './'
 
 // 加入 vendor 公共包的库
 exports.vendor = []
 
 // webpack dev server 默认端口，也可以通过命令行来指定 --port=9000，默认9000
-// exports.port = 9000;
+// exports.port = 9000
 
 // 自定义的 loaders
 const loaders = path.resolve(__dirname, './webpack/loaders')

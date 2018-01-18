@@ -12,6 +12,7 @@
     padding: 12px 0 13px;
     margin: 0 auto;
     max-width: $nav-width;
+    overflow: hidden;
 
     a {
       display: inline-block;
@@ -47,6 +48,8 @@
 
   .items {
     float: right;
+    overflow: hidden;
+    height: 100%;
     line-height: 32px;
     padding-right: 150px;
 

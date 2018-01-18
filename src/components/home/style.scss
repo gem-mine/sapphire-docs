@@ -1,24 +1,25 @@
 @import '~styles/param';
 
 .main {
-  padding: 50px 0;
   position: relative;
-  min-height: 400px;
+  min-height: 600px;
+  max-width: $nav-width;
   min-width: 800px;
+  margin: 0 auto;
 
   .box {
-    max-width: $nav-width;
-    padding: 60px 20px;
-    margin: 0 auto;
+    top: 30%;
+    transform: translateY(-30%);
+    position: absolute;
   }
   .info {
     position: absolute;
-    left: 270px;
+    width: 420px;
   }
 
   .logo {
     position: absolute;
-    left: 800px;
+    left: 600px;
     img {
       width: 320px;
       height: 320px;

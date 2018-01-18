@@ -19,6 +19,9 @@
   * fish: 用到 fish UI 组件库时的别名
   * fishmobile: 用到 fish-mobile UI 组件库时的别名
 * 支持 uglifyJS 进行代码压缩
+* 细节支持：
+  * npm start 端口冲突时自动采用可用端口
+  * 开发期异常输出到浏览器界面，方便调试
 
 **重要：gem-mine 中的 webpack 会根据你是否支持 IE8 进行自行选择，IE8 会选择 webpack 1x，现代浏览器会选择 webpack 3x。这里也不对 webpack 进行包装统一，涉及到细节的配置，请根据不同版本的 webpack 进行。**
 

@@ -23,7 +23,7 @@ class Home extends Component {
             <Info />
           </VelocityComponent>
 
-          <VelocityComponent animation={{ left: showConsole ? 200 : 800 }} duration={1000}>
+          <VelocityComponent animation={{ left: showConsole ? 0 : 600 }} duration={1000}>
             <Logo />
           </VelocityComponent>
 
