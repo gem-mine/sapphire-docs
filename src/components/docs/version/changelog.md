@@ -1,5 +1,9 @@
 # 版本履历
 
+* `2018年01月22日`
+  * gem-mine-template
+    * windows 下 webpack-dev-server 默认使用本机 IP 打开
+
 * `2018年01月18日`
 
   * gem-mine 0.1.9
