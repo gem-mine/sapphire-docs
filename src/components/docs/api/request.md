@@ -42,9 +42,9 @@ const config = {
       prefix: '/v1.0'
     }
   }
-};
+}
 
-module.exports = config;
+module.exports = config
 ```
 
 上面声明了一个 api 的请求服务，mode 表明请求使用的模式是 cors。mode 可选值包括：
@@ -76,25 +76,23 @@ const config = {
       // ...
     }
   }
-};
+}
 
-module.exports = config;
+module.exports = config
 ```
-
-
 
 业务中使用就非常的简单：
 
 ```javascript
-import { request } from 'cat-eye';
-const { api } = request;
+import { request } from 'cat-eye'
+const { api } = request
 
 // 返回了一个 axios 对象（promise）
 api.get('/mock', {
   params: {
     q: 'hello'
   }
-});
+})
 ```
 
 使用接口和 axios 相同，axios 文档可以查看：<a href="https://github.com/axios/axios#axios-api" target="_blank">axios</a>
@@ -120,9 +118,9 @@ const config = {
       prefix: '/v1.0'
     }
   }
-};
+}
 
-module.exports = config;
+module.exports = config
 ```
 
 对于某个请求服务，使用到的配置优先级查找顺序是这样的：
@@ -183,9 +181,9 @@ const config = {
       prefix: '/proxy/v1.0'
     }
   }
-};
+}
 
-module.exports = config;
+module.exports = config
 ```
 
 和 CORS 中配置的区别是，非 wds 模式下，prefix 添加了一个前缀 /proxy（defaults 和 debug 配置中可以看到）。这个前缀是为了让后端代码路由识别，统一处理。这个规则需要前后端进行协定。
@@ -217,9 +215,9 @@ const config = {
       prefix: '/proxy/v1.0'
     }
   }
-};
+}
 
-module.exports = config;
+module.exports = config
 ```
 
 prefix 在非 wds 配置下，同样增加了 /proxy 前缀，是为了发送请求后被 nginx 识别，将需要的请求转发到服务器。
@@ -263,9 +261,9 @@ const config = {
       prefix: '/v2.0'
     }
   }
-};
+}
 
-module.exports = config;
+module.exports = config
 ```
 
 上面配置中，api 这个请求使用了 nginx 反向代理，douban 这个请求使用了 server 代理
@@ -281,17 +279,17 @@ module.exports = config;
 上面的需求可以通过请求的切面来实现，这些切面的配置文件位于：`src/global/request.js`，其代码大致结构如下：
 
 ```javascript
-import { request, actions } from 'cat-eye';
-import proxyConfig from 'config/proxy';
-import { getCurrentProxyConfig } from './util/proxy';
+import { request, actions } from 'cat-eye'
+import proxyConfig from 'config/proxy'
+import { getCurrentProxyConfig } from './util/proxy'
 
-request.init(getCurrentProxyConfig(proxyConfig));
+request.init(getCurrentProxyConfig(proxyConfig))
 
 // 全局设置，对所有请求生效
-request.config({});
+request.config({})
 
 // 某个域的设置，对该域的请求生效
-request.api.config({});
+request.api.config({})
 ```
 
 设置通常包括了以下几点：
@@ -308,20 +306,20 @@ request.config({
   // 当请求时间超过默认设定的1500ms时触发 loading
   loading: function(params) {
     // this 指向这个请求实例，为了便于后面取消这个提示。这里使用了 fish 的 message 组件
-    this.hideTip = message.loading('请求仍在进行，请稍候...', 15);
+    this.hideTip = message.loading('请求仍在进行，请稍候...', 15)
   },
   // 请求异常时的处理函数，这里使用 fish 的 message 组件进行提示
   error: function(res) {
-    const msg = getIn(res, 'data.message') || '您的请求遇到了错误，请稍候再试';
-    message.error(msg, 5);
+    const msg = getIn(res, 'data.message') || '您的请求遇到了错误，请稍候再试'
+    message.error(msg, 5)
   },
   // 请求完成时的处理函数，无论成功失败，这里只是将 loading 隐藏
   complete: function(res) {
     if (this.hideTip) {
-      this.hideTip();
+      this.hideTip()
     }
   }
-});
+})
 ```
 
 还可以对某个域进行设置，如果有重复的切面，则域的设置会覆盖全局的设置：
@@ -329,9 +327,9 @@ request.config({
 ```javascript
 request.api.config({
   error: function(res) {
-    alert(res.data.message);
+    alert(res.data.message)
   }
-});
+})
 ```
 
 因此 api 请求还会使用 全局的 loading 和 complete，但是 error 使用自己定义的方式。
@@ -346,7 +344,7 @@ request.api.config({
   before: function(params, ins, cfg) {
     return setIn(params, {
       'headers.Authorization': '...'
-    });
+    })
   }
-});
+})
 ```

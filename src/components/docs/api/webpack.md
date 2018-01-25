@@ -25,7 +25,6 @@
 
 **重要：gem-mine 中的 webpack 会根据你是否支持 IE8 进行自行选择，IE8 会选择 webpack 1x，现代浏览器会选择 webpack 3x。这里也不对 webpack 进行包装统一，涉及到细节的配置，请根据不同版本的 webpack 进行。**
 
-
 ## 涉及文件
 
 webpack 配置涉及的文件在 <a href="#/guide/catalogue">目录结构</a> 这一节中详细描述过：

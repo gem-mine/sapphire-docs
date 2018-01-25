@@ -1,12 +1,19 @@
 # 版本履历
 
+* `2018年01月25日`
+
+  * cat-eye 0.3.6（latest）或 2.2.1（next）
+    * 提供 getState 方法，在任意地方直接获取 store
+
 * `2018年01月22日`
+
   * gem-mine-template
     * windows 下 webpack-dev-server 默认使用本机 IP 打开
 
 * `2018年01月18日`
 
   * gem-mine 0.1.9
+
     * gem-mine update 命令自动处理增加的包，更新 package.json，自动更新依赖
     * gem-mine update 支持 --with_public 选项，此时会自动更新 public 目录
 

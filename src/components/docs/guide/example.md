@@ -78,7 +78,7 @@ npm start
 这里提一下命名推荐的规范：**目录一律用小写，jsx 组件除了 index.jsx 外采用驼峰命名**，例如：footer 下的 index.jsx、Links.jsx。**组件对外暴露的默认是 index.jsx**。导入时只要到目录一级即可：
 
 ```jsx
-import Footer from 'components/common/footer';
+import Footer from 'components/common/footer'
 ```
 
 接着就可以根据 react 开发方式，开发 header、footer，其中的样式采用 scss 模块化开发。
@@ -86,8 +86,8 @@ import Footer from 'components/common/footer';
 开发完毕后，在 `src/App.jsx` 引入，进行布局：
 
 ```jsx
-import Header from 'components/common/header';
-import Footer from 'components/common/footer';
+import Header from 'components/common/header'
+import Footer from 'components/common/footer'
 
 const App = props => {
   return (
@@ -98,8 +98,8 @@ const App = props => {
       </div>
       <Footer />
     </div>
-  );
-};
+  )
+}
 ```
 
 中间的一块留给路由填充组件使用

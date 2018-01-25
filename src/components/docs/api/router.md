@@ -18,9 +18,9 @@ gem-mine 内置 react-router 4，并提供了基于 react router 4 的封装，�
 通用配置用来为路由组件注入 props，以及设置 403 无权限，404 没找到路由的默认组件配置。这个配置是通过 cat-eye 提供的 router.config 进行：
 
 ```javascript
-import { router } from 'cat-eye';
-import NotFound from 'components/common/exception/404';
-import Forbidden from 'components/common/exception/403';
+import { router } from 'cat-eye'
+import NotFound from 'components/common/exception/404'
+import Forbidden from 'components/common/exception/403'
 
 // 通用配置
 router.config({
@@ -28,14 +28,14 @@ router.config({
   mapStateToProps: state => {
     return {
       user: state.user
-    };
+    }
   },
   // 设置默认的 403，404 组件（可选，默认的403、404 无样式，较为简陋）
   components: {
     NotFound,
     Forbidden
   }
-});
+})
 ```
 
 ### 路由注册
@@ -43,7 +43,7 @@ router.config({
 通过 router.register 来注册路由，接受的参数是一个 object，一个相对完整的模板如下：
 
 ```javascript
-import { router } from 'cat-eye';
+import { router } from 'cat-eye'
 
 // 注册路由
 router.register({
@@ -57,9 +57,9 @@ router.register({
     path: '/',
     permission: props => {
       if (getIn(props, 'user.token')) {
-        return true;
+        return true
       }
-      return <Redirect to={{ pathname: LOGIN_PATH }} />;
+      return <Redirect to={{ pathname: LOGIN_PATH }} />
     },
     // 子路由
     sub: {
@@ -102,9 +102,9 @@ router.register({
         component: Admin, // 存在子路由，需要有个组件来放置路由
         permission: props => {
           if (props.user.name === ADMIN || props.user.name === SUPER) {
-            return true;
+            return true
           }
-          return false;
+          return false
         },
         sub: {
           dashboard: {
@@ -133,9 +133,9 @@ router.register({
             component: Super,
             permission: props => {
               if (props.user.name === SUPER) {
-                return true;
+                return true
               }
-              return <Forbidden message={`请将用户名改为 ${SUPER}`} />;
+              return <Forbidden message={`请将用户名改为 ${SUPER}`} />
             }
           },
           log: {
@@ -159,7 +159,7 @@ router.register({
       }
     }
   }
-});
+})
 ```
 
 路由中的每一项，可能由下面的若干个配置构成：
@@ -201,8 +201,8 @@ sub 和 module 都属于嵌套路由，会从祖先路由那里继承到 path �
 所有路由都写在 `src/global/routes/index.js` 下的话，可能会导致该文件变得很大，多人协作时容易引起冲突。可以利用 js 的模块性质进行拆分，通常根据功能块进行拆分：
 
 ```javascript
-import topicRoutes from './main.topic';
-import adminRoutes from './main.admin';
+import topicRoutes from './main.topic'
+import adminRoutes from './main.admin'
 
 router.register({
   login: {
@@ -215,9 +215,9 @@ router.register({
     path: '/',
     permission: props => {
       if (getIn(props, 'user.token') && getIn(props, 'user.name')) {
-        return true;
+        return true
       }
-      return <Redirect to={{ pathname: LOGIN_PATH }} />;
+      return <Redirect to={{ pathname: LOGIN_PATH }} />
     },
     // 子路由
     sub: {
@@ -236,7 +236,7 @@ router.register({
       admin: adminRoutes
     }
   }
-});
+})
 ```
 
 topic 配置放在同目录下的 `main.topic.js` 中：
@@ -263,7 +263,7 @@ export default {
       component: TopicItem
     }
   }
-};
+}
 ```
 
 同样也将 admin 配置抽取，放在同目录下的 `main.admin.js` 中
@@ -304,14 +304,14 @@ export default {
 例如上面路由中定义的 main.topic.detail 对应的 url：/topics/233?name=tom&age22，其中的 233 就是路径参数（key 为 id），name 和 age 是查询参数，可以这样获取：
 
 ```javascript
-import { queryString } from 'cat-eye';
+import { queryString } from 'cat-eye'
 
 export default props => {
-  const { name } = queryString.parse(props.location.search);
-  const { id } = props.match.params;
+  const { name } = queryString.parse(props.location.search)
+  const { id } = props.match.params
 
   // ...
-};
+}
 ```
 
 注意，如果 props 中没有 search 和 match，需要使用 `withRouter` 对组件进行包装。

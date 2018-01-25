@@ -24,7 +24,7 @@ npm start
 如果是所有环境下的常量一致，可以直接定义输出：
 
 ```javascript
-exports.TITLE = 'gem-mine';
+exports.TITLE = 'gem-mine'
 ```
 
 常量命名规则是全大写字母，多个单词之间使用下划线连接，例如：SOME_CONSTANT
@@ -45,7 +45,7 @@ const data = {
   production: {
     NAME: 'lucy'
   }
-};
+}
 ```
 
 没有 env 值时会读取 local 中的值，通常本地就是这种情况。当读取到 env 时，则获取对应的值，例如 env=production 时，读取到的 NAME 值是 lucy。
@@ -53,7 +53,7 @@ const data = {
 使用常量值，直接 import 即可：
 
 ```javascript
-import { TITLE, NAME } from 'config/constant';
+import { TITLE, NAME } from 'config/constant'
 ```
 
 ## 网络请求

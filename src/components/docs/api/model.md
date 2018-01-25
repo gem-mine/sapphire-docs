@@ -11,14 +11,14 @@ model 由 <a href="https://github.com/gem-mine/cat-eye" target="_blank">cat-eye<
 model **有且仅有 4 个属性值，分别是：name，state，reducers，effects**，我们通常这样定义一个 model：
 
 ```javascript
-import ce from 'cat-eye';
+import ce from 'cat-eye'
 
 ce.model({
   name: 'user',
   state: {},
   reducers: {},
   effects: {}
-});
+})
 ```
 
 * name 的作用
@@ -35,7 +35,7 @@ ce.model({
 
 ```javascript
 // src/global/model/user.js
-import ce from 'cat-eye';
+import ce from 'cat-eye'
 ce.model({
   name: 'user',
   state: {
@@ -46,18 +46,18 @@ ce.model({
     growUp() {
       return this.setField({
         age: v => v + 1
-      });
+      })
     }
   }
-});
+})
 
 // 在你需要的地方，通常是在 jsx 或者 model 的 effects 中调用
 // 例如 某个 jsx 中
-import { actions } from 'cat-eye';
+import { actions } from 'cat-eye'
 
 export default props => {
-  return <button onClick={actions.user.growUp}>click me</button>;
-};
+  return <button onClick={actions.user.growUp}>click me</button>
+}
 ```
 
 上面代码中，注意到 growUp 这个 reducer 中，使用了 this.setField，这是一个强大易用高效的工具，内部结合了 轻量的 immutable 功能，先不要着急如何使用，本文后面会为你介绍。
@@ -80,7 +80,7 @@ model 是自动引入到系统的，但需要满足下面其中一个原则：
 在 model 中定义好 reducers、effects 后，这些方法就会挂载在 actions 下，可以直接拿来使用：
 
 ```javascript
-import { actions } from 'cat-eye';
+import { actions } from 'cat-eye'
 ```
 
 如果不需要进行加工，可以在 JSX 中直接调用对应的方法：
@@ -114,23 +114,23 @@ class SomeComponent extends Component {
 组件中使用 model 通过 cat-eye 提供的 smart，这个是 react-redux connect 易用版：
 
 ```javascript
-import { smart } from 'cat-eye';
+import { smart } from 'cat-eye'
 
-export default smart(mapStateToProps, mapDispathToProps)(SomeComponent);
+export default smart(mapStateToProps, mapDispathToProps)(SomeComponent)
 ```
 
 这样看起来和 connect 似乎并无差别，重点是 mapDispatchToProps 可以直接取到 this.props 的值作为参数，来看下 mapDispatchToProps 的使用：
 
 ```javascript
-import { actions } from 'cat-eye';
+import { actions } from 'cat-eye'
 // mapDispatchToProps 的 props 即这个组件的 this.props
 export default smart(null, props => {
   // 一般 mapDispatchToProps 会调用 actions 提供的方法，以此来更新 state
-  const act = actions.user;
+  const act = actions.user
   return {
     growUp: act.growUp
-  };
-})(SomeComponent);
+  }
+})(SomeComponent)
 ```
 
 而 mapStateToProps 和 connect 并无两异：
@@ -198,13 +198,13 @@ key-value 的 value 还可以是一个 function：
 所有的 model，其 reducers 都会默认注册一个 setField 方法，这样 actions 上就会有该 model 的 setField 方法。正是由于这个方法的存在，导致了 reducers 存在感非常低，大部分设值操作都变得多余，直接通过 setField 进行即可。
 
 ```javascript
-import { actions } from 'cat-eye';
+import { actions } from 'cat-eye'
 
 // 在某个组件中直接修改 user state，无须定义 reducer
 actions.user.setField({
   name: 'tom',
   age: age => age + 1
-});
+})
 ```
 
 如果是纯粹的 redux 开发，这里要定义常量，定义 state，定义 action，实现 reducer，最后才在组件中进行 dispatch（可能还需要 connect），这里就简化成了一步。
