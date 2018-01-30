@@ -1,5 +1,22 @@
 # 待办事项
 
+* jsx 文件的 sourcemap 有问题，并且在 devtools 中没有语法高亮
+* 提供 style lint
+* postcss 配置检查并完善
+* 提供单元测试能力
+
+* 提高打包速度，调研以下方案：
+
+  * dev 中也使用 dll plugin 方案
+  * happypack 方案
+  * webpack cache
+  * babel cache
+  * hard-source-webpack-plugin
+  * webpack-uglify-parallel
+  * parallel-webpack
+
+* 多页面打包能力
+
 * 国际化能力
   * 业务国际化
   * UI 组件库国际化管理
