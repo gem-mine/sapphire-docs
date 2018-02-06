@@ -19,8 +19,16 @@ body {
   padding-bottom: $footer-height;
   background: #fff;
   font-size: 14px;
-  font-family: 'Helvetica Neue', 'Helvetica', tahoma, 'Hiragino Sans GB', 'PingFang SC', 'STHeitiSC-Light',
-    'Microsoft YaHei', Arial, sans-serif;
+  font-family:
+    'Helvetica Neue',
+    'Helvetica',
+    tahoma,
+    'Hiragino Sans GB',
+    'PingFang SC',
+    'STHeitiSC-Light',
+    'Microsoft YaHei',
+    Arial,
+    sans-serif;
 }
 
 body a {
@@ -77,7 +85,7 @@ p {
   color: #bfbfbf;
 }
 
-.clear:after {
+.clear::after {
   display: block;
   clear: both;
   content: '\20';

@@ -28,25 +28,15 @@ gem-mine project_name
 gem-mine update
 ```
 
-该命令会根据以前的选择（例如是否支持 IE8，选择了什么 UI 组件库等）进行自动升级，默认升级只处理以下文件：
+该命令会进行提示选择升级，包括：
+* 只更新 webpack 相关配置（更新 config/webpack 以及 config/webpack.js）
+* 更新 webpack 相关配置，以及 public 目录
+* 更新 除了源码（src目录）外的所有信息
+* 更新 gem-mine 涉及的所有信息（包括 src 目录）
 
-```
-├── config
-│     ├── webpack
-│     ├── webpack.js
-├── package.json
-```
-
-package.json 文件只会添加要增加的依赖包，并对依赖进行安装。如果需要更新 public 目录，请使用 --with_public 选项：
-
-```
-# 在项目根目录下执行：
-gem-mine update --with_public
-```
+gem-mine 会根据项目之前的情况（例如是否支持 IE8，选择了什么 UI 组件库等）进行自动升级
 
 **重要：覆盖处理前，请务必确保已经将代码 commit 到 git 仓库，否则上述涉及的文件会被覆盖**
-
-这里不处理其他文件是因为通常您已经修改了部分代码，为了减少恢复工作（通常只需要处理 webpack.js）。如果确实需要整个项目方式进行覆盖，可以采用上面提到的 `gem-mine project_name` 方式进行处理。
 
 ## npm scripts
 
