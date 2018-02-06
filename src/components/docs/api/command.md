@@ -62,11 +62,7 @@ npm start
 npm start --hot=false
 ```
 
-默认启动端口 9000，如果本地需要启动多个项目，防止端口冲突可以指定一个端口：
-
-```
-npm start --hot --port=9001
-```
+默认启动端口 9000，如果本地需要启动多个项目，会自动检测端口是否冲突，如果冲突则自动寻找可用端口。
 
 ### 打包
 
@@ -90,6 +86,14 @@ npm run build --polyfill --vendor
 npm run vendor
 npm run polyfill
 ```
+
+### 代码格式化检查
+
+```
+npm run lint
+```
+
+会执行样式检查（css/less/scss） 以及 js 检查（js/jsx）
 
 ### 参数列表
 

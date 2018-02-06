@@ -66,13 +66,16 @@
     "url-loader": "^0.6.2",
     "webpack": "^1.15.0",
     "webpack-bundle-analyzer": "^2.9.1",
-    "webpack-dev-server": "1.16.3"
+    "webpack-dev-server": "1.16.3",
+    "cache-loader": "^1.2.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0"
   },
   "scripts": {
     "start": "cross-env MODE=dev webpack-dev-server --progress",
     "build": "cross-env MODE=production webpack",
     "vendor": "cross-env MODE=vendor webpack",
     "polyfill": "cross-env MODE=polyfill webpack",
-    "lint": "eslint --ext .js config src"
+    "lint": "stylelint --fix 'src/**/*.css' & stylelint --fix 'src/**/*.scss' & stylelint --fix 'src/**/*.less' & eslint --fix --ext .js config src"
   }
 }

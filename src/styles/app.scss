@@ -10,6 +10,7 @@ html {
   background: #f9f9f9;
   height: 100%;
 }
+
 body {
   min-width: 320px;
   min-height: 100%;
@@ -21,8 +22,10 @@ body {
   font-family: 'Helvetica Neue', 'Helvetica', tahoma, 'Hiragino Sans GB', 'PingFang SC', 'STHeitiSC-Light',
     'Microsoft YaHei', Arial, sans-serif;
 }
+
 body a {
   text-decoration: none;
+
   &:hover {
     color: #148a1a;
   }
@@ -36,6 +39,7 @@ h5,
 h6 {
   margin: 0;
 }
+
 ul,
 li,
 dl,
@@ -69,6 +73,10 @@ p {
   color: #f5222d;
 }
 
+.gray {
+  color: #bfbfbf;
+}
+
 .clear:after {
   display: block;
   clear: both;
@@ -85,12 +93,15 @@ p {
     margin: 0 auto;
     display: block;
   }
+
   .thumb {
     width: 200px;
   }
+
   .tip {
     color: #888;
   }
+
   code {
     background-color: #abe090;
     color: #333;
@@ -100,6 +111,7 @@ p {
 video {
   width: 100%;
   margin: 10px 0 20px;
+
   .not-support {
     line-height: 50px;
     text-align: center;

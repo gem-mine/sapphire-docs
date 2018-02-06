@@ -1,5 +1,16 @@
 # 版本履历
 
+* `2018年02月06日`
+
+  * gem-mine 0.2.0
+    * gem-mine update 能力升级，可以通过选择进行针对性的升级
+    * 优化 git 工具安装的检测
+
+* `2018年02月05日`
+  * gem-mine-template
+    * 提供 stylelint，并对开发模式下启用 cache 以及 dll plugin，提高编译速度
+    * 提供 postcss 支持
+
 * `2018年01月25日`
 
   * cat-eye 0.3.6（latest）或 2.2.1（next）
