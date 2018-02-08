@@ -1,5 +1,10 @@
 # 版本履历
 
+* `2018年02月08日`
+
+  * gem-mine-template
+    * fixbug：dll plugin 构建时，若 manifest.json 不存在 npm start 出错
+
 * `2018年02月06日`
 
   * gem-mine 0.2.2
@@ -7,6 +12,7 @@
     * 优化 git 工具安装的检测
 
 * `2018年02月05日`
+
   * gem-mine-template
     * 提供 stylelint，并对开发模式下启用 cache 以及 dll plugin，提高编译速度
     * 提供 postcss 支持
