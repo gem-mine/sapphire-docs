@@ -17,11 +17,11 @@
   * styles: 公用样式目录 /src/styles
   * global: 全局功能目录 /src/global
   * fish: 用到 fish UI 组件库时的别名
-  * fishmobile: 用到 fish-mobile UI 组件库时的别名
+  * fish-mobile: 用到 fish-mobile UI 组件库时的别名
 * 支持 uglifyJS 进行代码压缩
 * 细节支持：
   * npm start 端口冲突时自动采用可用端口
-  * 开发期异常输出到浏览器界面，方便调试
+  * 开发期异常输出到浏览器界面，方便调试（需要选择非 IE8 项目）
 
 **重要：gem-mine 中的 webpack 会根据你是否支持 IE8 进行自行选择，IE8 会选择 webpack 1x，现代浏览器会选择 webpack 3x。这里也不对 webpack 进行包装统一，涉及到细节的配置，请根据不同版本的 webpack 进行。**
 
@@ -47,11 +47,14 @@ webpack.js 支持的配置在该文件的注释中已经有了详细的说明，
 * title：HTML 页面标题栏的名称
 * resolve：额外的别名设置，放在 alias 中处理
 * buildPath：指定打包输出的目录结构，默认是 /build 目录，你可以指定到磁盘中的有权限写入的任意位置
-* port：webpack-dev-server 的端口，默认 9000。当然你可以直接用命令行指定：npm start--port=9001
-* vendor：额外要打入公共包的文件，默认已经有 react、redux、cat-eye 相关文件
+* publicPath：静态资源路径配置，默认值 `./`，表示的是 `/build` 目录。对于 css 中的图片、字体等路径，以及写入到入口 `index.html` 的 js、css 等路径，都是通过这个值设定的。（后续可以支持自动上传 CDN 功能）
+* port：webpack-dev-server 的端口，默认 9000。当然你可以直接用命令行指定：npm start --port=9001
+* vendor：额外要打入公共包的文件，默认已经有 react、redux、cat-eye （、prop-types）相关文件
 * loaders：额外的 loader 配置
 * plugins：额外的 plugin 配置
 * additional：额外第三包配置，这些包是放在 public 目录下，直接在 index.html 中使用
+* excludeStyleModule：不需要进行样式模块化的文件或目录（默认 node_modules、styles 目录不会进行样式模块化）
+* staticHash：是否需要将资源文件名进行 hash 处理（用来自动处理缓存问题），某些项目需要固定静态资源文件名（缓存方案自行处理）, 可以将其设置为 false
 * done：打包结束后的回调函数
 
 可以打开 `config/webpack.js` 来对照查看。

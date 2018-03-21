@@ -40,6 +40,7 @@ project
 ├── .gem-mine
 ├── .gitignore
 ├── .npmrc
+├── .stylelintrc
 ├── package.json
 ├── webpack.config.js
 ```
@@ -66,7 +67,7 @@ project
 
   * `index.html` 入口 HTML 文件模板，会被 html-webpack-plugin 处理，如果你要添加一些第三方直接使用的包、一些兼容性处理 等修改模板，例如加入 jquery 等，就需要修改此文件
   * `polyfill-promise.js` IE8-IE11 的 promise 的 polyfill 包
-  * `polyfill-ie8.js` 专门针对 IE8 的 polyfill 包，仅在支持 IE8 项目中存在
+  * `polyfill-ie8.js` 专门针对 IE8-9 的 polyfill 包
 
 * `src` 源码目录
   * `components` 组件目录

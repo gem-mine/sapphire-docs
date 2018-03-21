@@ -60,22 +60,7 @@ npm start --hot=false
 npm run build
 ```
 
-打包时会检测是否生成过 polyfill 和 vendor，如果没有，则会自动调用 npm run polyfill 和 npm run vendor 生成对应的 polyfill 包 和 vendor 包。
-
-如果依赖包（例如 cat-eye）或者 polyfill 有更新过，并且本地已经存在 polyfill 或者 vendor，可以手动指定执行：
-
-```
-npm run build --polyfill
-npm run build --vendor
-npm run build --polyfill --vendor
-```
-
-当然，你也可以直接执行 vendor 和 polyfill 命令进行打包（通常不需要这两个命令）：
-
-```
-npm run vendor
-npm run polyfill
-```
+打包时会自动调用 npm run polyfill 和 npm run vendor 生成对应的 polyfill 包 和 vendor 包。
 
 ### 代码格式化检查
 
@@ -88,8 +73,6 @@ npm run lint
 ### 参数列表
 
 * --hot=false：禁用热加载，用于 npm start，被 webpack-dev-server 接受
-* --port=xxx：指定端口，用于 npm start，被 webpack-dev-server 接受
+* --port=xxx：指定端口，用于 npm start，被 webpack-dev-server 接受。通常不需要此参数，会自动寻找可用端口
 * --env=xxx：指定环境变量，不指定则从系统中获取（没有为空），该变量会影响 `config/constant.js` 和 `config/proxy.js`。**代码中可以使用 ENV 这个全局变量来获取这个值**。
 * --analyzer：是否输出打包分析，用于做一些打包性能调优分析依据
-* --polyfill：是否同时进行 polyfill 打包，用于 npm run build
-* --vendor：是否同时进行 vendor 打包，用于 npm run build

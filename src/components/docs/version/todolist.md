@@ -24,6 +24,7 @@
   * 支持远程翻译资源文件（工具类）
 * <span class="green">[已处理] webpack 根据项目是否支持 IE8 进行自动选择版本，现代浏览器可以使用 webpack 3 or 4。目前脚手架中为了兼容 IE8，采用了 webpack 1.x</span>
 * 资源自动化 CDN 能力
-  * 支持资源前缀配置
+  * <span class="green">[已处理]支持资源前缀配置</span>
   * 阿里云（工具类）
+  * 七牛（工具类）
   * CS（内网，工具类）
