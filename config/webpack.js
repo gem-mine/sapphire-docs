@@ -1,4 +1,5 @@
 const path = require('path')
+
 // 生成页面的 title
 exports.title = `gem-mine's world`
 
@@ -11,7 +12,7 @@ exports.resolve = {
 exports.buildPath = path.resolve(__dirname, '../docs')
 
 // todo: 静态资源路径配置, 如果有 cdn 支持，可以配置到 cdn，对本地开发无效
-// exports.publicPath = './'
+exports.publicPath = './'
 
 // 加入 vendor 公共包的库
 exports.vendor = []
@@ -36,6 +37,14 @@ exports.plugins = []
 // 只需要写文件文件名即可，会在 vendor 构造时进行拷贝
 // 引用请自行修改 public/index.html 进行处理
 exports.additional = ['jquery-1.9.0.js']
+
+// 不需要进行样式模块化的文件或目录（node_modules、styles 目录不会进行样式模块化）
+exports.excludeStyleModule = []
+
+// 是否需要将资源文件名进行 hash 处理（用来解决缓存问题）
+// 某些项目需要固定静态资源文件名（缓存方案自行处理）, 可以将其设置为 false
+// 注意：仅对 npm run build 生效
+exports.staticHash = true
 
 // webpack 处理完毕后的回调处理
 exports.done = function () {}
