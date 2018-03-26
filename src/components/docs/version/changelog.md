@@ -4,6 +4,8 @@
 
   * gem-mine-template
     * fixbug：vendor/polyfill 在开发模式下的判断错误问题
+  * gem-mine-docs
+    * 添加 actions.routing 使用说明
 
 * `2018年03月21日`
 
