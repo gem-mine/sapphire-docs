@@ -17,7 +17,7 @@ exports.publicPath = './'
 // 加入 vendor 公共包的库
 exports.vendor = []
 
-// webpack dev server 默认端口，也可以通过命令行来指定 --port=9000，默认9000
+// webpack dev server 默认端口，也可以通过命令行来指定 --port=9000，默认9000（通常不用设置，冲突时会自动使用可用端口）
 // exports.port = 9000
 
 // 自定义的 loaders
