@@ -47,6 +47,16 @@ smart(
 )()
 ```
 
+actions 上默认具有 routing 对象，可以操作浏览器的地址：
+
+```jsx
+import { actions, urlFor } from 'cat-eye'
+
+actions.routing.push(urlFor('examples')) // 跳转，并写入浏览器历史
+actions.routing.replace(urlFor('examples')) // 跳转，但不写入浏览器历史
+actions.routing.goBack() // 回退
+```
+
 ## router
 
 * 路由 配置与声明

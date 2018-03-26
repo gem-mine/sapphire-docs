@@ -316,6 +316,30 @@ export default props => {
 
 注意，如果 props 中没有 search 和 match，需要使用 `withRouter` 对组件进行包装。
 
+#### js 中路由跳转
+
+actions 中默认具有一个 routing 对象，这个对象上有 5 个方法，是用来更新 location 的：
+
+* push(url)： 往 history 中添加一条记录，并跳转到目标 url（浏览器具有后退功能）
+* replace(url)： 替换 hisotry 中当前 url（替换当前 url，不会加入浏览器历史栈）
+* go()：往前或者往后跳转
+* goForward()：往前跳转一条历史记录，等价于 go(1)。
+* goBack()：往后跳转一条历史记录，等价于 go(-1)。
+
+这些方法来自于 history API，意义和用法完全一致。不过与原生方法不同的是，调用 actions.routing 上的这些方法，在更新 location 的同时，你的 routing 与 Redux store 将会保持同步，同时一个 type 为 `@@router/LOCATION_CHANGE` 的 action 会被 dispatch。
+
+例如，我们需要代码中 3 秒后跳转到一个新的 url：
+
+```jsx
+import { actions, urlFor } from 'cat-eye'
+
+// ...
+setTimeout(() => {
+  actions.routing.push(urlFor('examples'))
+}, 3000)
+// ...
+```
+
 ### 其他 react-router 的 API
 
 cat-eye 对 <a href="https://reacttraining.com/react-router/web" target="_blank">react-router 4 </a> 进行了封装，但也将其常用 API 暴露出来，包括：

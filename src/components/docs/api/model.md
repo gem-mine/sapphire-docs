@@ -109,6 +109,8 @@ class SomeComponent extends Component {
 }
 ```
 
+注：actions 中默认存在一个 routing 对象，用于浏览器地址的操作（跳转、前进、后退等），详细请参看 <a href="#/docs/api/router">js 中的路由跳转</a>
+
 ### 组件中使用 model：smart、actions
 
 组件中使用 model 通过 cat-eye 提供的 smart，这个是 react-redux connect 易用版：
