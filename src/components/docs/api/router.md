@@ -174,6 +174,77 @@ router.register({
 * module：平级模块路由，其下配置也是一个路由配置
 * exact：唯一匹配，否则”/“和”/page1”都会匹配到 path 为"/"的路由，制定 exact 后，"/page1"就不会再匹配到"/"了
 
+### 路由的按需打包与加载
+gem-mine 提供了 asyncLoad 支持路由的拆包、加载能力。这样可以有效减小首屏 js 大小，同时提供了闲时自动下载这些独立的拆包，为非首屏的页面做预加载，提高了非首屏页面的加载性能与体验度。
+
+```javascript
+import { asyncLoad } from 'global/util/async-load'
+
+import Container from 'components/examples'
+import List from 'components/examples/List'
+
+export default {
+  path: '/examples',
+  component: Container,
+  description: '一些示例',
+  // 子路由
+  sub: {
+    list: {
+      component: List,
+      description: '简单示例列表页',
+      index: true
+    },
+    constant: {
+      path: '/constant',
+      component: asyncLoad('components/examples/constant'),
+      description: '常量使用例子'
+    },
+    action: {
+      path: '/action',
+      component: asyncLoad('components/examples/counter'),
+      description: 'action使用例子'
+    },
+    params: {
+      path: '/params/:id',
+      component: asyncLoad('components/examples/params'),
+      description: 'URL变量和参数例子'
+    },
+    request: {
+      path: '/request',
+      component: asyncLoad('components/examples/request'),
+      description: '请求使用例子'
+    },
+    permission: {
+      path: '/permission',
+      permission: function (props) {
+        return props.example.count > 10
+      },
+      redirect: 'examples.permission.y',
+      description: '权限拦截例子',
+      module: {
+        x: {
+          path: '/x',
+          component: asyncLoad('components/examples/permission/X')
+        },
+        y: {
+          path: '/y',
+          component: asyncLoad('components/examples/permission/Y')
+        }
+      }
+    },
+    ui: {
+      path: '/ui',
+      description: 'UI 组件库示例',
+      component: asyncLoad('components/examples/ui')
+    }
+  }
+}
+```
+
+这样，打包时候，asyncLoad 的组件就会被单独打包成类似 `1.1-9966fae0d52341b0adcb.js` 的文件。*gem-mine 提供了闲时自动加载这些单独打包的文件，这样非首屏文件可以在闲时静默下载。*
+
+*注意：支持 IE 8 的项目，不能使用 `asyncLoad('components/examples/ui')` 写法（若误使用此写法，浏览器控制台也会抛出错误进行提示），需要改成 `asyncLoad(() => import('components/examples/ui'))`*
+
 #### 嵌套路由：sub 和 module 的区别
 
 sub 和 module 都属于嵌套路由，会从祖先路由那里继承到 path 和 permission。其区别在于 sub 是子路由，需要一个容器作为承载，路由变化时，只有指定部分的内容会发生变化。 module 我们称之为平级模块，只是为了较少 path 和 permission 书写而已。module 无论嵌套多少级他们之间都是平级的，是共享操作一个区域的内容。

@@ -1,5 +1,11 @@
 # 版本履历
 
+* `2018年04月10日`
+
+  * gem-mine-template
+    * 支持 code splitting，根据路由拆包打包、加载资源，减轻首屏 js 大小，提高首屏下载速度
+    * 支持 idle preload，空闲期时自动加载被拆包打包的资源，提高非首屏页面的加载速度与体验
+
 * `2018年03月26日`
 
   * gem-mine-template
