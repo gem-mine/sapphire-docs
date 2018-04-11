@@ -19,6 +19,7 @@
   * fish: 用到 fish UI 组件库时的别名
   * fish-mobile: 用到 fish-mobile UI 组件库时的别名
 * 支持 uglifyJS 进行代码压缩
+* 支持自动化上传 CDN 处理
 * 细节支持：
   * npm start 端口冲突时自动采用可用端口
   * 开发期异常输出到浏览器界面，方便调试（需要选择非 IE8 项目）
@@ -47,7 +48,31 @@ webpack.js 支持的配置在该文件的注释中已经有了详细的说明，
 * title：HTML 页面标题栏的名称
 * resolve：额外的别名设置，放在 alias 中处理
 * buildPath：指定打包输出的目录结构，默认是 /build 目录，你可以指定到磁盘中的有权限写入的任意位置
-* publicPath：静态资源路径配置，默认值 `./`，表示的是 `/build` 目录。对于 css 中的图片、字体等路径，以及写入到入口 `index.html` 的 js、css 等路径，都是通过这个值设定的。（后续可以支持自动上传 CDN 功能）
+* publicPath：静态资源路径配置，默认值 `./`，表示的是 `/build` 目录。对于 css 中的图片、字体等路径，以及写入到入口 `index.html` 的 js、css 等路径，都是通过这个值设定的。（如果配置了自动上传 CDN 功能，则此路径无效，会使用 cdn 的路径（cd.host + '/' + cdn.params.path）作为 publicPath）
+* cdn：自动化上传 CDN 配置，根据不同 CDN 配置可能会略有不同，并且要求开启前安装对应的工具包。例如七牛 CDN 的配置：
+
+```javascript
+// 七牛 CDN 配置
+// 开启前请安装依赖包，执行：npm i gem-mine-cdn-qiniu -D
+const { QINIU_KEY: key, QINIU_SECRET: secret } = process.env
+exports.cdn = {
+  // 在哪些环境中启用 cdn，npm_config_env 的值（通过 --env=production 指定）
+  env: ['production'],
+  // cdn 的包，可以自己实现，默认提供了 七牛（gem-mine-cdn-qiniu）、OSS（gem-mine-cdn-oss 未发布）、CS（gem-mine-cdn-cs 未发布） 方案
+  package: 'gem-mine-cdn-qiniu',
+  // cdn 的域名
+  host: 'http://dn-tomjoke.qbox.me',
+  // cdn 的参数，作为参数被上面实现的包接收
+  params: {
+    bucket: 'tomjoke',
+    key, // access_key
+    secret, // access_secret
+    path: 'static', // 七牛存储对应的路径
+    uploadMapFile: false // 是否上传 map 文件
+  }
+}
+```
+
 * port：webpack-dev-server 的端口，默认 9000。当然你可以直接用命令行指定：npm start --port=9001
 * vendor：额外要打入公共包的文件，默认已经有 react、redux、cat-eye （、prop-types）相关文件
 * loaders：额外的 loader 配置

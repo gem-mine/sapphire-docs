@@ -4,6 +4,7 @@ import 'normalize.css'
 import 'github-markdown-css'
 import 'highlight.js/styles/atom-one-light.css'
 import 'styles/app'
+import { Preload } from 'global/util/async-load'
 
 import Header from 'components/common/header'
 import Footer from 'components/common/footer'
@@ -16,6 +17,7 @@ const App = props => {
         <Routes />
       </div>
       <Footer />
+      <Preload />
     </div>
   )
 }

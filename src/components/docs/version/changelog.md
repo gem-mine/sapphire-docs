@@ -1,5 +1,10 @@
 # 版本履历
 
+* `2018年04月11日`
+
+  * gem-mine-template
+    * 支持 七牛自动化 CDN
+
 * `2018年04月10日`
 
   * gem-mine-template

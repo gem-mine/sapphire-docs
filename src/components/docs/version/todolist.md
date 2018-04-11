@@ -29,5 +29,5 @@
 * 资源自动化 CDN 能力
   * <span class="green">[已处理]支持资源前缀配置</span>
   * 阿里云（工具类）
-  * 七牛（工具类）
+  * <span class="green">[已处理]七牛（工具类）</span>
   * CS（内网，工具类）
