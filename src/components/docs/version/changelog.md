@@ -4,6 +4,7 @@
 
   * gem-mine-template
     * 支持 七牛自动化 CDN
+    * 提供稳定的 hash 方案
 
 * `2018年04月10日`
 

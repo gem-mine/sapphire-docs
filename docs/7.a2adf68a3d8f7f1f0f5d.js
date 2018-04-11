@@ -1,2 +1,2 @@
 webpackJsonp([7],{"171":function(e,t,l){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{"value":!0});var u=l(1),a=n(u),r=l(3),o=l(161),s=n(o);t["default"]=function(e){return a["default"].createElement("div",null,a["default"].createElement("span",null,"yyyyy "),a["default"].createElement(r.Link,{"className":s["default"].link,"to":(0,r.urlFor)("examples.permission.x")},"goto page X"))}}});
-//# sourceMappingURL=7.7-8f7a37e7a293304ace2a.js.map
+//# sourceMappingURL=7.a2adf68a3d8f7f1f0f5d.js.map

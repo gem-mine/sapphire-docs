@@ -76,3 +76,4 @@ npm run lint
 * --port=xxx：指定端口，用于 npm start，被 webpack-dev-server 接受。通常不需要此参数，会自动寻找可用端口
 * --env=xxx：指定环境变量，不指定则从系统中获取（没有为空），该变量会影响 `config/constant.js` 和 `config/proxy.js`。**代码中可以使用 ENV 这个全局变量来获取这个值**。
 * --analyzer：是否输出打包分析，用于做一些打包性能调优分析依据
+* --cdn：强制启用 cdn 功能，默认是根据 config/webpack.js 中的 cdn 配置，根据对应的环境变量进行自动判断是否上传 CDN。

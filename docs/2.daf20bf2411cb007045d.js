@@ -1,2 +1,2 @@
 webpackJsonp([2],{"164":function(e,t,l){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{"value":!0});var u=l(1),a=n(u),d=l(118),r=l(161),c=n(r);t["default"]=function(e){return a["default"].createElement("div",null,a["default"].createElement("ul",null,a["default"].createElement("li",null,"env：",""),a["default"].createElement("li",null,"该环境下的常量值: ",d.NAME)),a["default"].createElement("div",{"className":c["default"].tip},"tip：可以尝试 npm start --env=dev 来设置env，部署时会自动获取机器上设置的 env 值，以此来获取例如不同 API 地址等功能"))}}});
-//# sourceMappingURL=2.2-8f7a37e7a293304ace2a.js.map
+//# sourceMappingURL=2.daf20bf2411cb007045d.js.map

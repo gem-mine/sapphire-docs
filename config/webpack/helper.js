@@ -11,6 +11,7 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const WebpackMd5Hash = require('webpack-md5-hash')
 const DonePlugin = require('./plugins/done')
 const constant = require('./constant')
 
@@ -22,15 +23,24 @@ try {
   proxy = {}
 }
 
-const { ROOT, NODE_MODULES, SRC, BUILD, PUBLIC, CONFIG, STYLE } = constant
+const { ROOT, NODE_MODULES, SRC, BUILD, PUBLIC, CONFIG, STYLE, CDN } = constant
 const { MODE } = process.env
+
+let publicPath
+if (CDN) {
+  publicPath = `${config.cdn.host.replace(/\/+$/, '')}/${config.cdn.params.path
+    .replace(/^\//, '')
+    .replace(/\/+$/, '')}/`
+} else {
+  publicPath = config.publicPath
+}
 
 let SOURCE_IN_HTML_PUBLIC_PATH
 const isDev = MODE === 'dev'
 if (isDev) {
   SOURCE_IN_HTML_PUBLIC_PATH = ''
 } else {
-  SOURCE_IN_HTML_PUBLIC_PATH = config.publicPath
+  SOURCE_IN_HTML_PUBLIC_PATH = publicPath
 }
 
 function exec(cmd, ext) {
@@ -261,7 +271,8 @@ const helper = {
       return Object.assign(
         {
           path: BUILD,
-          filename: `[name]${config.staticHash ? '-[hash]' : ''}.js`,
+          filename: `[name]${config.staticHash ? '-[chunkhash]' : ''}.js`,
+          chunkFilename: `[name].[chunkhash].js`,
           publicPath: SOURCE_IN_HTML_PUBLIC_PATH
         },
         params
@@ -399,7 +410,7 @@ const helper = {
           showErrors: true,
           title: config.title,
           staticHash: config.staticHash,
-          prefix: config.publicPath
+          prefix: publicPath
         },
         params
       )
@@ -456,13 +467,16 @@ const helper = {
       return new OpenBrowserPlugin({ url })
     },
     extractCss: function () {
-      return new ExtractTextPlugin('[name].[contenthash].css', {
+      return new ExtractTextPlugin(`[name]${config.staticHash ? '.[contenthash]' : ''}.css`, {
         allChunks: true,
-        publicPath: config.publicPath
+        publicPath
       })
     },
     analyzer: function () {
       return new BundleAnalyzerPlugin()
+    },
+    md5hash: function () {
+      return new WebpackMd5Hash()
     },
     done: function (callback) {
       return new DonePlugin(function () {
