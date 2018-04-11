@@ -62,7 +62,7 @@ exports.excludeStyleModule = []
 // 是否需要将资源文件名进行 hash 处理（用来解决缓存问题）
 // 某些项目需要固定静态资源文件名（缓存方案自行处理）, 可以将其设置为 false
 // 注意：仅对 npm run build 生效
-exports.staticHash = false
+exports.staticHash = true
 
 // webpack 处理完毕后的回调处理
 exports.done = function () {}
