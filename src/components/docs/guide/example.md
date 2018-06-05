@@ -34,7 +34,7 @@
 gem-mine gem-mine-docs
 
 # 开始开发
-cd gem-mine
+cd gem-mine-docs
 npm start
 ```
 

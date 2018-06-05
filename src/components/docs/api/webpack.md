@@ -28,7 +28,7 @@
 
 ## 涉及文件
 
-webpack 配置涉及的文件在 <a href="#/guide/catalogue">目录结构</a> 这一节中详细描述过：
+webpack 配置涉及的文件在 <a href="#/docs/guide/catalogue">目录结构</a> 这一节中详细描述过：
 
 > * `webpack.js` 暴露给开发者的配置文件
 > * `webpack` 封装的 webpack 配置目录，通常情况下开发者无须去修改，包含：
