@@ -21,7 +21,7 @@ const { QINIU_KEY: key, QINIU_SECRET: secret } = process.env
 exports.cdn = {
   env: ['production'], // 在哪些环境中启用 cdn，npm_config_env 的值（通过 --env=production 指定）
   package: 'gem-mine-cdn-qiniu', // cdn 的包，可以自己实现，默认提供了 七牛（gem-mine-cdn-qiniu）、OSS（gem-mine-cdn-oss）、CS（gem-mine-cdn-cs） 方案
-  host: 'http://dn-tomjoke.qbox.me', // cdn 的域名
+  host: 'https://dn-tomjoke.qbox.me', // cdn 的域名
   // cdn 的参数，作为参数被上面实现的包接收
   params: {
     bucket: 'tomjoke',
