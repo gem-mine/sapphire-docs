@@ -16,8 +16,8 @@
   * components: 组件目录 /src/components
   * styles: 公用样式目录 /src/styles
   * global: 全局功能目录 /src/global
-  * fish: 用到 fish UI 组件库时的别名
-  * fish-mobile: 用到 fish-mobile UI 组件库时的别名
+  * fish: 用到 fish UI 组件库时的别名 @sdp.nd/fish
+  * fish-mobile: 用到 fish-mobile UI 组件库时的别名 @sdp.nd/fish-mobile
 * 支持 uglifyJS 进行代码压缩
 * 支持自动化上传 CDN 处理
 * 细节支持：
@@ -33,12 +33,14 @@ webpack 配置涉及的文件在 <a href="#/docs/guide/catalogue">目录结构</
 > * `webpack.js` 暴露给开发者的配置文件
 > * `webpack` 封装的 webpack 配置目录，通常情况下开发者无须去修改，包含：
 >
+>   * helper：webpack 常规辅助工具函数放在此目录下，后续 dev.js、production.js、polyfill.js、vendor.js 重度依赖此文件
 >   * loaders：存放自定义 webpack loader 目录，在 webpack 常规 loader 无法满足功能需要自己定制 loader 时才会用到
 >   * plugins：存放自定义 webpack plugins 目录，在 webpack 常规 plugin 无法满足功能需要自己定制 plugin 时才会用到
->   * helper.js：webpack 常规辅助工具函数，后续 dev.js、production.js、polyfill.js、vendor.js 重度依赖此文件
+>   * scripts：一些提供给 npm scripts 的脚本，目前有 lint 脚本 
 >   * dev.js：npm start 对应的运行脚本，是一个标准的 webpack 配置文件，用于 webpack 构建开发期的脚本
 >   * production.js：npm run build 对应的运行脚本，是一个标准的 webpack 配置文件，用于 webpack 打包上线时的脚本
 >   * polyfill.js：npm run polyfill 对应的运行脚本，是一个标准的 webpack 配置文件，用于 webpack 构建 polyfill 文件
+>   * postcss.config.js：postcss 配置文件
 >   * vendor.js：npm run vendor 对应的运行脚本，是一个标准的 webpack 配置文件，用于 webpack 构建公共包文件
 
 ## 配置说明

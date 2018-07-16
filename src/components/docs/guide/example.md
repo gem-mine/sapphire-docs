@@ -169,3 +169,8 @@ velocity-react 在 IE8 下的动画需要依赖 jquery，因此引进 jquery-1.9
 使用 gem-mine 开发了 gem-mine-docs，一方面验证了其开发的便利性、灵活度，另一方面也反哺了 gem-mine，发现了脚手架一些 bug，并提出一些基础需求让脚手架改进增强。
 
 希望你在 gem-mine 的过程中，也能提出思考后的建设性意见，欢迎在 <a href="https://github.com/gem-mine/gem-mine/issues" target="_blank"> issues</a> 提出问题，如果你可以 pull request 进行贡献，那自然是极好的。只有良好的互动，才是一个健康的程序，健康的生态。
+
+
+### 后续一：2018年07月16日
+
+使用了 gem-mine update 进行了升级，同时配置支持了 https

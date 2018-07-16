@@ -6,18 +6,23 @@
 project
 ├── config
 │     ├── webpack （大部分情况下无须去修改此目录下文件）
+│     │     ├── helper
 │     │     ├── loaders
 │     │     ├── plugins
-│     │     ├── helper.js
+│     │     ├── scripts
+│     │     ├── constant.js
 │     │     ├── dev.js
 │     │     ├── production.js
 │     │     ├── polyfill.js
+│     │     ├── postcss.config.js
 │     │     ├── vendor.js
 │     ├── constant.js
 │     ├── proxy.js
 │     ├── webpack.js
 ├── public
+│     ├── partial
 │     ├── index.html
+│     ├── favicon.ico
 │     ├── polyfill-promise.js
 │     ├── polyfill-ie8.js
 ├── src
@@ -50,14 +55,16 @@ project
 * `config` 存放项目的 webpack 配置、常量配置、网络请求配置。（<span class="tip">注：常量、网络请求中涉及使用了环境变量，而且是配置，所以放在 config 而不是 src</span>）
 
   * `webpack.js` 暴露给开发者的配置文件
-  * `webpack` 封装的 webpack 配置目录，通常情况下开发者无须去修改，包含：
+  * `webpack` 封装的 webpack 配置目录，**通常情况下开发者无须去修改**，包含：
 
+    * helper：webpack 常规辅助工具函数放在此目录下，后续 dev.js、production.js、polyfill.js、vendor.js 重度依赖此文件
     * loaders：存放自定义 webpack loader 目录，在 webpack 常规 loader 无法满足功能需要自己定制 loader 时才会用到
     * plugins：存放自定义 webpack plugins 目录，在 webpack 常规 plugin 无法满足功能需要自己定制 plugin 时才会用到
-    * helper.js：webpack 常规辅助工具函数，后续 dev.js、production.js、polyfill.js、vendor.js 重度依赖此文件
+    * scripts：一些提供给 npm scripts 的脚本，目前有 lint 脚本 
     * dev.js：npm start 对应的运行脚本，是一个标准的 webpack 配置文件，用于 webpack 构建开发期的脚本
     * production.js：npm run build 对应的运行脚本，是一个标准的 webpack 配置文件，用于 webpack 打包上线时的脚本
     * polyfill.js：npm run polyfill 对应的运行脚本，是一个标准的 webpack 配置文件，用于 webpack 构建 polyfill 文件
+    * postcss.config.js：postcss 配置文件
     * vendor.js：npm run vendor 对应的运行脚本，是一个标准的 webpack 配置文件，用于 webpack 构建公共包文件
 
   * `constant.js` 存放常量的配置，可以根据环境变量 env 来设置不同环境变量下常量值
@@ -66,6 +73,7 @@ project
 * `public` 系统模块之外的资源目录
 
   * `index.html` 入口 HTML 文件模板，会被 html-webpack-plugin 处理，如果你要添加一些第三方直接使用的包、一些兼容性处理 等修改模板，例如加入 jquery 等，就需要修改此文件
+  * `partial`：该目录存放一些局部模板，目前提供了 loading.html 作为直出的页面等待效果
   * `polyfill-promise.js` IE8-IE11 的 promise 的 polyfill 包
   * `polyfill-ie8.js` 专门针对 IE8-9 的 polyfill 包
 
