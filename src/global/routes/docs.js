@@ -55,8 +55,8 @@ export default {
     {
       name: 'question',
       subs: [
-        { name: 'faq', markdown: Faq, description: '如何高效反馈问题' },
-        { name: 'list', markdown: QuestionList, description: '常见问题列表' }
+        { name: 'list', markdown: QuestionList, description: '常见问题列表' },
+        { name: 'faq', markdown: Faq, description: '如何高效反馈问题' }
         // { name: 'contribute', markdown: Contribute, description: '如何贡献' }
       ]
     },

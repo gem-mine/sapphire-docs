@@ -70,6 +70,8 @@ npm run lint
 
 会执行样式检查（css/less/scss） 以及 js 检查（js/jsx）
 
+如果需要使用自动修复功能，可以添加 --fix 参数：`npm run lint --fix`。自动修复通常效果一般，推荐检测后手动进行修改。
+
 ### 参数列表
 
 * --hot=false：禁用热加载，用于 npm start，被 webpack-dev-server 接受
