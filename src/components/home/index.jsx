@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { smart, Link } from 'cat-eye'
+import { smart } from 'cat-eye'
 import style from './style'
 import { VelocityComponent } from 'velocity-react'
 import 'velocity-animate/velocity.ui'
