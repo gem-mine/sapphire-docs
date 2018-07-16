@@ -54,7 +54,7 @@ exports.plugins = []
 // 额外需要从 public 目录拷贝到编译后目录的资源（例如一些第三方的lib）
 // 只需要写文件文件名即可，会在 vendor 构造时进行拷贝
 // 引用请自行修改 public/index.html 进行处理
-exports.additional = ['jquery-1.9.0.js']
+exports.additional = ['jquery-1.9.0.js', 'CNAME']
 
 // 不需要进行样式模块化的文件或目录（node_modules、styles 目录不会进行样式模块化）
 exports.excludeStyleModule = []

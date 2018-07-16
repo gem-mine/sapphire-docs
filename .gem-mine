@@ -1,5 +1,7 @@
 {
+  "id": "1531675242079O1403256885",
   "name": "gem-mine-docs",
   "platform": "pc",
-  "ie8": true
+  "ie8": true,
+  "template_version": "0.8.6"
 }

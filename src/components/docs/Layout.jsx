@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, urlFor, Routes, router, smart, withRouter } from 'cat-eye'
+import { NavLink, urlFor, Routes, router, withRouter } from 'cat-eye'
 import style from './style'
 
 class Layout extends Component {

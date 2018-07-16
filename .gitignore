@@ -21,4 +21,3 @@ coverage
 .vscode
 .cache-loader
 /manifest.json
-/docs/CNAME
