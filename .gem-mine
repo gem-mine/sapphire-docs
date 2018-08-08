@@ -4,5 +4,5 @@
   "platform": "pc",
   "ie8": true,
   "react_version": "0.14.9",
-  "template_version": "0.8.6"
+  "template_version": "0.8.9"
 }
