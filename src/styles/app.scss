@@ -113,6 +113,10 @@ p {
     background-color: #abe090;
     color: #333;
   }
+
+  li>p {
+    margin-bottom: 2px;
+  }
 }
 
 video {

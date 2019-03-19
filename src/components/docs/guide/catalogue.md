@@ -4,18 +4,18 @@
 
 ```text
 project
-├── config
-│     ├── webpack （大部分情况下无须去修改此目录下文件）
-│     │     ├── helper
-│     │     ├── loaders
-│     │     ├── plugins
-│     │     ├── scripts
-│     │     ├── constant.js
-│     │     ├── dev.js
-│     │     ├── production.js
-│     │     ├── polyfill.js
-│     │     ├── postcss.config.js
-│     │     ├── vendor.js
+├── config [存放项目的 webpack 配置、常量配置、网络请求配置]
+│     ├── webpack [webpack 核心配置，大部分情况下无须去修改此目录下文件]
+│     │     ├── helper [webpack 工具函数，webpack 的能力都是由这里提供组装]
+│     │     ├── loaders [自定义的 loaders]
+│     │     ├── plugins [自定义的 plugins]
+│     │     ├── scripts [提供的一些自动化脚本]
+│     │     ├── constant.js [webpack 需要的常量]
+│     │     ├── dev.js [development 模式下的打包，是一个完整的 webpack 配置文件]
+│     │     ├── production.js [production 模式下的打包，是一个完整的 webpack 配置文件]
+│     │     ├── polyfill.js [将 polyfill 进行打包]
+│     │     ├── postcss.config.js [postcss 配置文件]
+│     │     ├── vendor.js [将一些公共包进行打包，使用 dll]
 │     ├── constant.js
 │     ├── proxy.js
 │     ├── webpack.js

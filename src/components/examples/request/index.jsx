@@ -1,6 +1,6 @@
 import React from 'react'
 import { actions, smart } from '@gem-mine/durex'
-import { getIn } from 'zero-immutable'
+import { getIn } from '@gem-mine/immutable'
 import style from './style'
 
 const Cmp = props => {
