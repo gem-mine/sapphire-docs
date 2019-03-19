@@ -8,8 +8,8 @@ export default props => {
     <div className={style.nav}>
       <div className={`${style.header} clear`}>
         <Link to={''} className={style.logo}>
-          <img src={logo} alt="gem-mine" />
-          <strong>gem mine</strong>
+          <img src={logo} alt="@gem-mine/sapphire" />
+          <strong>sapphire</strong>
         </Link>
         <ul className={style.items}>
           <li>
@@ -33,7 +33,7 @@ export default props => {
             </NavLink>
           </li>
         </ul>
-        <a href="http://github.com/gem-mine/gem-mine" target="_blank" className={style.version} />
+        <a href="http://github.com/gem-mine/sapphire" target="_blank" className={style.version} />
       </div>
     </div>
   )

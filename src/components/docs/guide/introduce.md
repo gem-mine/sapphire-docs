@@ -1,21 +1,26 @@
-# gem-mine 是什么
+# gem-mine 与 sapphire
 
-<span class="green">**gem-mine 宝石矿产**</span>，一个蕴藏许多珍宝的脚手架。
+现在的 <span class="blue">sapphire（蓝宝石）</span>，前世的 <span class="green">gem-mine</span>。
 
-gem-mine 是一个快速创建基于 react + redux + router 的脚手架工具，同时提供代码框架进行业务快速开发。
+to：用过 gem-mine 的人，改名的原因：gem-mine 原本寓意为蕴藏诸多宝藏的 <span class="delete gray">脚手架</span>矿产，后续 gem-mine 不仅仅提供脚手架，还会提供一整套贯穿前端开发过程的工具链。因此原先的脚手架工具<span class="red">归为其中的一个宝藏</span>：<span class="blue">sapphire（蓝宝石）</span>。刚好借着这次去 IE8 的契机，做了代码升级与重构，但对于 gem-mine 用户来说，不要担心，升级是完全平滑的。
+
+
+我们来看 gem-mine 的整体架构图：
 
 <img src="./gem-mine.png"/>
 
-## 特性
+sapphire 只是其中脚手架市场中的一员，是一个快速创建基于 react + redux + router 的脚手架工具，同时提供代码框架进行业务快速开发。
+
+## sapphire 特性
 
 * 基于命令行快速创建项目骨架
 
   * 支持选择平台类型：PC 端、移动端
-  * 支持选择是否对 IE8 进行支持，默认支持。**这里的兼容不仅仅是 polyfill，对于 react、webpack 等版本都会进行处理**
+  * PC WEB 端，内置了 polyfill，对 IE9+ 进行了适配
+  * 基于 webpack 4+、react 16+，内置常用 plugin、loader，提供友好的开发模式
   * 支持选择内置 UI 组件库
-  * 支持快速生成管理后台结构
 
-* 基于 cat-eye 猫眼，提供了一套优质的代码框架与工具
+* 基于 @gem-mine/durex，提供了
 
   * 简洁易用的 model 系统，大大降低 redux 的繁琐与复杂度
   * 抽象封装的 router 系统，基于 react-router 4，支持子路由、权限控制与继承
@@ -24,12 +29,6 @@ gem-mine 是一个快速创建基于 react + redux + router 的脚手架工具�
     * 支持多种方式处理跨域问题（server 代理、nginx 反向代理、CORS 跨域）
     * 支持多站点跨域
     * 可以根据不同环境变量进行统一配置
-
-* 国际化方案（暂未支持）
-  * 业务国际化
-  * UI 组件库国际化
-  * 工具类国际化（moment 定制）
-  * 支持远程翻译资源文件
 
 ## 与社区脚手架的差异
 

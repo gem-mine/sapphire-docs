@@ -33,7 +33,7 @@ export default {
     {
       name: 'guide',
       subs: [
-        { name: 'introduce', markdown: Introduce, description: 'gem-mine 是什么' },
+        { name: 'introduce', markdown: Introduce, description: 'gem-mine 与 sapphire' },
         { name: 'quickstart', markdown: Quickstart, description: '快速入门' },
         { name: 'catalogue', markdown: Catalogue, description: '目录结构' },
         { name: 'example', markdown: Example, description: '开发实例' }

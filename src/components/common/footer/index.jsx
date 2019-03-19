@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './style'
 import Links from './Links'
-import logo1 from 'styles/images/logo-blue.png'
+import logo1 from 'styles/images/logo-green.png'
 import logo2 from 'styles/images/logo-purple.png'
 import logo3 from 'styles/images/logo-red.png'
 

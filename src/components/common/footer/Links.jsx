@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '@gem-mine/durex'
+import { Link, urlFor } from '@gem-mine/durex'
 import style from './style'
 
 export default props => {
@@ -14,12 +14,12 @@ export default props => {
             </a>
           </dd>
           <dd>
-            <a href="https://github.com/gem-mine/cat-eye" target="_blank">
+            <a href="https://github.com/gem-mine/durex" target="_blank">
               redux 工具
             </a>
           </dd>
           <dd>
-            <a href="https://github.com/gem-mine/zero-immutable" target="_blank">
+            <a href="https://github.com/gem-mine/immutable" target="_blank">
               immutable 工具
             </a>
           </dd>
@@ -29,10 +29,10 @@ export default props => {
         <dl>
           <dt>Community</dt>
           <dd>
-            <Link to={''}>版本履历</Link>
+            <Link to={urlFor('docs.version')}>版本履历</Link>
           </dd>
           <dd>
-            <Link to={''}>常见问题</Link>
+            <Link to={urlFor('docs.question')}>常见问题</Link>
           </dd>
           <dd>
             <a href="https://github.com/gem-mine/gem-mine/issues" target="_blank">
@@ -50,7 +50,7 @@ export default props => {
             </a>
           </dd>
           <dd>
-            <a href="https://mobile ant.design" target="_blank">
+            <a href="https://mobile.ant.design" target="_blank">
               Ant Design Mobile
             </a>
           </dd>

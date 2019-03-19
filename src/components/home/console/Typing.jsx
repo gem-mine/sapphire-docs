@@ -12,13 +12,13 @@ class Typing extends Component {
         <span className={style.tip}>
           # 安装工具 🛠<br />
         </span>
-        $: npm i gem-mine -g
+        $: npm i @gem-mine/sapphire -g
         <br />
         <Typist.Delay ms={750} />
         <span className={style.tip}>
           # 初始化项目 🚀 <br />
         </span>
-        $: gem-mine project_name
+        $: sapphire project_name
         <br />
         <Typist.Delay ms={750} />
         <span className={style.tip}>

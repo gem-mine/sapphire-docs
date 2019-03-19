@@ -1,23 +1,24 @@
 # 命令行
 
-## 安装 gem-mine
+## 安装 sapphire
 
 ```
-npm i gem-mine -g
+npm i @gem-mine/sapphire -g
 ```
 
-## 使用 gem-mine
+## 使用 sapphire
 
 * 创建项目
 
 ```
-gem-mine project_name
+sapphire project_name
+# 或者使用 sapphire 的中文拼音 lanbs（蓝宝石）
 ```
 
 如果该项目已经存在，会提示你是否进行覆盖处理，会对脚手架已经存在的文件进行覆盖。
 
 1. **重要：覆盖处理前，请务必确保已经将代码 commit 到 git 仓库，这样一来可以避免修改的丢失，二来更新后可以利用 git 看到具体有哪些变动**
-2. **重要：如果已经是一个 gem-mine 创建的项目，建议使用 `gem-mine update` 命令处理升级，这样无须进行选项的选择**
+2. **重要：如果已经是一个 sapphire 创建的项目，建议使用 `sapphire update` 命令处理升级，这样无须进行选项的选择**
 
 创建项目时，如果该项目并没有被 git 管理，gem-mine 会自动为你初始化 git。
 

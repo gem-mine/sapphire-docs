@@ -35,7 +35,7 @@ body a {
   text-decoration: none;
 
   &:hover {
-    color: #148a1a;
+    color: #40a9ff;
   }
 }
 
@@ -55,6 +55,12 @@ dt,
 dd {
   margin: 0;
   padding: 0;
+}
+
+.markdown-body {
+  color: #314659;
+  font-size: 14px;
+  line-height: 2;
 }
 
 p {
@@ -83,6 +89,10 @@ p {
 
 .gray {
   color: #bfbfbf;
+}
+
+.delete {
+  text-decoration:line-through;
 }
 
 .clear::after {

@@ -64,22 +64,22 @@
     text-align: center;
     font-weight: normal;
     margin-right: 10px;
-    border: 1px solid #22ab28;
-    color: #22ab28;
+    border: 1px solid #40a9ff;
+    color: #40a9ff;
     outline: none;
     cursor: pointer;
 
     &:hover {
       color: #fff;
-      background: #42bd48;
-      border-color: #0e5f12;
+      background: #1890ff;
+      border-color: #1890ff;
       transition: all 0.3s;
     }
   }
 
   .primary {
-    background: #22ab28;
-    border-color: #209425;
+    background: #40a9ff;
+    border-color: #1890ff;
     color: #fff;
   }
 }
