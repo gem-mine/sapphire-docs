@@ -19,16 +19,7 @@ body {
   padding-bottom: $footer-height;
   background: #fff;
   font-size: 14px;
-  font-family:
-    'Helvetica Neue',
-    'Helvetica',
-    tahoma,
-    'Hiragino Sans GB',
-    'PingFang SC',
-    'STHeitiSC-Light',
-    'Microsoft YaHei',
-    Arial,
-    sans-serif;
+  font-family: 'Helvetica Neue', 'Helvetica', tahoma, 'Hiragino Sans GB', 'PingFang SC', 'STHeitiSC-Light', 'Microsoft YaHei', Arial, sans-serif;
 }
 
 body a {
@@ -55,12 +46,6 @@ dt,
 dd {
   margin: 0;
   padding: 0;
-}
-
-.markdown-body {
-  color: #314659;
-  font-size: 14px;
-  line-height: 2;
 }
 
 p {
@@ -92,7 +77,7 @@ p {
 }
 
 .delete {
-  text-decoration:line-through;
+  text-decoration: line-through;
 }
 
 .clear::after {
@@ -107,6 +92,10 @@ p {
 }
 
 .markdown-body {
+  color: #314659;
+  font-size: 14px;
+  line-height: 2;
+
   .center {
     margin: 0 auto;
     display: block;
