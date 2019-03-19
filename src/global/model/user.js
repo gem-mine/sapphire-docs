@@ -1,4 +1,4 @@
-import ce from 'cat-eye'
+import ce from '@gem-mine/durex'
 
 ce.model({
   name: 'user',

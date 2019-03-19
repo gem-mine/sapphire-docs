@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { actions, smart } from 'cat-eye'
+import { actions, smart } from '@gem-mine/durex'
 import Typist from 'components/common/typist'
 import style from './style'
 

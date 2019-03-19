@@ -1,9 +1,13 @@
-import { request } from 'cat-eye'
+/* global ENV, DEBUG */
+import '@gem-mine/durex'
+import request from '@gem-mine/request'
 import proxyConfig from 'config/proxy'
-import { getCurrentProxyConfig } from 'global/util/sys'
 
 // 获取环境中对应的网络配置
-request.init(getCurrentProxyConfig(proxyConfig))
+request.init(proxyConfig, {
+  env: ENV,
+  wds: DEBUG
+})
 
 // 全局设置，对所有请求生效
 request.config({

@@ -1,5 +1,5 @@
 import React from 'react'
-import { smart, withRouter, Routes } from 'cat-eye'
+import { smart, withRouter, Routes } from '@gem-mine/durex'
 import 'normalize.css'
 import 'github-markdown-css'
 import 'highlight.js/styles/atom-one-light.css'

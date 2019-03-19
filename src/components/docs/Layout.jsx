@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, urlFor, Routes, router, withRouter } from 'cat-eye'
+import { NavLink, urlFor, Routes, router, withRouter } from '@gem-mine/durex'
 import style from './style'
 
 class Layout extends Component {

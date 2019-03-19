@@ -1,4 +1,4 @@
-import { router } from 'cat-eye'
+import { router } from '@gem-mine/durex'
 
 // 组件引入
 import NotFound from 'components/common/exception/404'

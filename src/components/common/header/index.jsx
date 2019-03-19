@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link, urlFor } from 'cat-eye'
+import { NavLink, Link, urlFor } from '@gem-mine/durex'
 import style from './style'
 import logo from 'styles/images/logo.png'
 

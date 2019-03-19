@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { actions, smart } from 'cat-eye'
+import { actions, smart } from '@gem-mine/durex'
 import style from './style'
 
 class Info extends Component {

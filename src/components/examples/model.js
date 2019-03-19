@@ -1,4 +1,5 @@
-import ce, { request } from 'cat-eye'
+import ce from '@gem-mine/durex'
+import request from '@gem-mine/request'
 const { example } = request
 
 ce.model({

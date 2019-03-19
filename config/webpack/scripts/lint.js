@@ -1,7 +1,7 @@
 #!/bin/env node
 const path = require('path')
 const execSync = require('child_process').execSync
-const { log } = require('gem-mine-helper')
+const { log } = require('@gem-mine/sapphire-helper')
 
 const root = path.resolve(__dirname, '../../../')
 const fix = process.env.npm_config_fix ? '--fix' : ''

@@ -1,5 +1,5 @@
 import React from 'react'
-import { actions, smart } from 'cat-eye'
+import { actions, smart } from '@gem-mine/durex'
 import style from './style'
 
 const Counter = props => {

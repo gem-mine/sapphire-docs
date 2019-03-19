@@ -1,5 +1,5 @@
 import React from 'react'
-import { queryString } from 'cat-eye'
+import { queryString } from '@gem-mine/durex'
 import style from '../style'
 
 export default props => {

@@ -1,6 +1,6 @@
 const path = require('path')
 const detect = require('detect-port')
-const { log } = require('gem-mine-helper')
+const { log } = require('@gem-mine/sapphire-helper')
 const { SRC } = require('./constant')
 const { helper, join, preBuild } = require('./helper')
 const custom = require('../webpack')
@@ -10,8 +10,12 @@ const shouldAnalyzer = !!process.env.npm_config_analyzer
 
 const files = preBuild()
 
+/**
+ * 开发模式下构建
+ */
 const configPromise = new Promise(function (resolve, reject) {
   const config = {
+    mode: 'development',
     entry: {
       main: [path.resolve(SRC, 'index.js')]
     },
@@ -21,22 +25,21 @@ const configPromise = new Promise(function (resolve, reject) {
     devtool: 'cheap-module-eval-source-map',
     cache: true,
     module: {
-      loaders: join(
+      rules: join(
         helper.loaders.babel(isHot),
         helper.loaders.css(isHot, custom.excludeStyleModule),
         helper.loaders.less(isHot, custom.excludeStyleModule),
         helper.loaders.sass(isHot, custom.excludeStyleModule),
-        helper.loaders.json(),
         helper.loaders.source(),
         custom.loaders
-      ),
-      postLoaders: join(helper.loaders.exports(), helper.loaders.es3ify())
+      )
     },
     plugins: join(
       helper.plugins.define('dev', {
         DEBUG: true
       }),
       helper.plugins.ignore(/vertx/),
+      helper.plugins.scopeHosting(),
       helper.plugins.dllReference(),
       helper.plugins.extractCss(),
       helper.plugins.splitCss(),

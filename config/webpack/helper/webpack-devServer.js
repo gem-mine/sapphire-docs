@@ -1,4 +1,5 @@
-const { log } = require('gem-mine-helper')
+const { log } = require('@gem-mine/sapphire-helper')
+const { wdsProxySetting } = require('@gem-mine/request')
 const anyBody = require('body/any')
 const { getIP } = require('./util')
 
@@ -10,6 +11,7 @@ module.exports = function (hot, port, params = {}) {
     contentBase: BUILD,
     host: getIP(),
     port: port,
+    overlay: true,
     stats: {
       chunks: false,
       children: false,
@@ -19,38 +21,28 @@ module.exports = function (hot, port, params = {}) {
       errors: true,
       warnings: false
     },
-    proxy: {}
+    proxy: wdsProxySetting(proxy, {
+      onProxyReq: function (proxyReq, req, res) {
+        const method = req.method.toUpperCase()
+        const message = `${method}: http://${req.headers.host}${req.originalUrl} -> ${this.url}${req.url}`
+        req.headers['content-type'] = 'application/json'
+        log.warning(`收到请求 ${message}`)
+        console.log('header:', JSON.stringify(req.headers))
+        anyBody(req, res, function (err, body) {
+          if (['POST', 'PUT', 'DELETE'].indexOf(method) > -1) {
+            if (err) {
+              console.log(err)
+            } else {
+              console.log('body:', JSON.stringify(body))
+            }
+          }
+        })
+      }
+    })
   }
   if (hot) {
     obj.inline = true
     obj.hot = true
   }
-
-  Object.keys(proxy).forEach(function (key) {
-    const item = proxy[key]
-    const wds = item.wds
-    if (wds) {
-      const prefix = `/${key}_wds`
-      log.warning(`开启了代理请求，匹配前缀：${prefix} 请求将会被转发到：${wds.url}`)
-      obj.proxy[prefix] = {
-        target: wds.url,
-        changeOrigin: true,
-        secure: false,
-        pathRewrite: { [`^${prefix}`]: '' },
-        onProxyReq: function (proxyReq, req, res) {
-          const method = req.method.toUpperCase()
-          log.warning(`收到请求 ${method}: http://${req.headers.host}${req.originalUrl} -> ${wds.url}${req.url}`)
-          console.log('header: ', JSON.stringify(req.headers))
-          anyBody(req, res, function (err, body) {
-            if (err) {
-            }
-            if (['POST', 'PUT', 'DELETE'].indexOf(method) > -1) {
-              console.log('body: ', JSON.stringify(body))
-            }
-          })
-        }
-      }
-    }
-  })
   return Object.assign(obj, params)
 }

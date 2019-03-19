@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Loadable from 'react-loadable'
-import { SUPPORT_IE8 } from 'config/constant'
 import Loading from './Loading'
 import Idle from './Idle'
 
@@ -13,11 +12,6 @@ export function asyncLoad(p, preload = true) {
       if (typeof p === 'function') {
         return p()
       } else {
-        if (SUPPORT_IE8) {
-          throw new Error(
-            `你的项目需要支持 IE8，异步路由请使用 function 方式，例如: asyncLoad(() => import('components/examples/counter'))`
-          )
-        }
         return import(`../../../${p}`)
       }
     },

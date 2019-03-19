@@ -1,4 +1,4 @@
-const { readJSON } = require('gem-mine-helper')
+const { readJSON } = require('@gem-mine/sapphire-helper')
 const os = require('os')
 
 exports.getConfig = function (path) {

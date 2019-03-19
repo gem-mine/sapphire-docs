@@ -39,14 +39,22 @@ exports.vendor = []
 // exports.port = 9000
 
 // 自定义的 loaders
-const loaders = path.resolve(__dirname, './webpack/loaders')
-exports.loaders = [{
-  test: /\.md$/,
-  loader: `html-loader!${loaders}/markdown`,
-  options: {
-    table: false
+exports.loaders = [
+  {
+    test: /\.md$/,
+    use: [
+      {
+        loader: 'html-loader'
+      },
+      {
+        loader: `markdown-loader`,
+        options: {
+          table: false
+        }
+      }
+    ]
   }
-}]
+]
 
 // 自定义的 plugins
 exports.plugins = []

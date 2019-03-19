@@ -10,6 +10,11 @@
   },
   "plugins": ["react"],
   "extends": ["standard", "standard-react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "env": {
     "browser": true,
     "amd": true,

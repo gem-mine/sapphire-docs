@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'cat-eye'
+import { Link } from '@gem-mine/durex'
 import style from './style'
 
 export default props => {

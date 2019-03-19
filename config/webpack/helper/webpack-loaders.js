@@ -1,54 +1,90 @@
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { join } = require('./util')
+const { getPublicPath } = require('./source-path')
+const config = require('../../webpack')
 const { NODE_MODULES, STYLE, CONFIG } = require('../constant')
 
-function loadStyle(hot, type, exclude) {
-  const excludes = join(NODE_MODULES, STYLE, exclude)
-  const loaders = ['style-loader', 'css-loader']
-  const CSS_MODULE = 'modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:5]'
-  let reg
-  loaders.push(
-    `postcss-loader?${JSON.stringify({
+const publicPath = getPublicPath(config)
+
+const styleLoaders = {
+  // style loader，仅在 hot 模式下使用
+  style: {
+    loader: 'style-loader'
+  },
+  // 抽取 loader，非 hot 模式下使用
+  extract: {
+    loader: MiniCssExtractPlugin.loader,
+    options: {
+      publicPath
+    }
+  },
+  // css loader， 没有 module 处理，对 excludes 规则生效
+  css: {
+    loader: 'css-loader'
+  },
+  // css loader with module，非 excludes 规则下生效
+  cssWithModule: {
+    loader: 'css-loader',
+    options: {
+      modules: true,
+      importLoaders: 1,
+      localIdentName: '[name]__[local]-[hash:base64:5]'
+    }
+  },
+
+  // postcss loader config
+  postcss: {
+    loader: 'postcss-loader',
+    options: {
       sourceMap: true,
       config: {
-        path: path.resolve(CONFIG, 'webpack/postcss.config.js')
+        path: path.resolve(CONFIG, 'webpack')
       }
-    })}`
-  )
-  if (type === 'css') {
-    reg = /\.css$/
-  } else {
-    if (type === 'less') {
-      loaders.push('less-loader')
-      reg = /\.less$/
-    } else if (type === 'sass') {
-      loaders.push('sass-loader?outputStyle=expanded')
-      reg = /\.scss$/
+    }
+  },
+
+  // sass loader config
+  sass: {
+    loader: 'sass-loader',
+    options: {
+      outputStyle: 'expand',
+      sourceMap: true
+    }
+  },
+
+  // less loader config
+  less: {
+    loader: 'less-loader',
+    options: {
+      javascriptEnabled: true,
+      sourceMap: true
     }
   }
+}
 
-  let last = ''
-  if (type !== 'css') {
-    last = `!${loaders[3]}`
-  }
-
+function loadStyle(reg, hot, exclude, loader) {
+  const excludes = join(NODE_MODULES, STYLE, exclude)
+  const loaders = []
+  loaders.push(hot ? styleLoaders.style : styleLoaders.extract)
   const result = [
     {
       test: reg,
       exclude: excludes,
-      loader: hot
-        ? `${loaders[0]}!${loaders[1]}?${CSS_MODULE}!${loaders[2]}${last}`
-        : ExtractTextPlugin.extract(loaders[0], `${loaders[1]}?${CSS_MODULE}!${loaders[2]}${last}`)
+      use: loaders.concat(styleLoaders.cssWithModule, styleLoaders.postcss)
     },
     {
       test: reg,
       include: excludes,
-      loader: hot
-        ? `${loaders[0]}!${loaders[1]}!${loaders[2]}${last}`
-        : ExtractTextPlugin.extract(loaders[0], `${loaders[1]}!${loaders[2]}${last}`)
+      use: loaders.concat(styleLoaders.css, styleLoaders.postcss)
     }
   ]
+
+  if (loader) {
+    result.forEach(item => {
+      item.use.push(loader)
+    })
+  }
 
   return result
 }
@@ -60,20 +96,20 @@ module.exports = {
       exclude: NODE_MODULES
     }
     if (hot) {
-      obj.loader = 'react-hot-loader!babel-loader?cacheDirectory=true'
+      obj.use = ['cache-loader', 'babel-loader?cacheDirectory=true']
     } else {
-      obj.loader = 'babel-loader'
+      obj.use = ['babel-loader']
     }
     return obj
   },
   css: function (hot, exclude) {
-    return loadStyle(hot, 'css', exclude)
+    return loadStyle(/\.css$/, hot, exclude)
   },
   less: function (hot, exclude) {
-    return loadStyle(hot, 'less', exclude)
+    return loadStyle(/\.less$/, hot, exclude, styleLoaders.less)
   },
   sass: function (hot, exclude) {
-    return loadStyle(hot, 'sass', exclude)
+    return loadStyle(/\.scss$/, hot, exclude, styleLoaders.sass)
   },
   source: function () {
     return [
@@ -86,24 +122,5 @@ module.exports = {
         loader: 'file-loader'
       }
     ]
-  },
-  es3ify: function () {
-    return {
-      test: /\.jsx?$/,
-      loader: 'es3ify-loader'
-    }
-  },
-  exports: function () {
-    return {
-      test: /\.jsx?$/,
-      exclude: NODE_MODULES,
-      loader: 'export-from-ie8/loader'
-    }
-  },
-  json: function () {
-    return {
-      test: /\.json$/,
-      loader: 'json-loader'
-    }
   }
 }

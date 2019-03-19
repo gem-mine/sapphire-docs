@@ -1,19 +1,19 @@
 const path = require('path')
 const config = require('../../webpack')
-const { NODE_MODULES, SRC, CONFIG } = require('../constant')
+const { NODE_MODULES, SRC, CONFIG, SXP_PREFIX } = require('../constant')
 
 module.exports = {
   resolve: function () {
     const params = config.resolve || {}
     const obj = {
-      fallback: NODE_MODULES,
-      extensions: ['', '.js', '.jsx', '.css', '.less', '.scss'],
+      modules: [NODE_MODULES],
+      extensions: ['.js', '.jsx', '.css', '.less', '.scss'],
       alias: {
         config: CONFIG,
         components: path.resolve(SRC, 'components'),
         styles: path.resolve(SRC, 'styles'),
         global: path.resolve(SRC, 'global'),
-        fish: '@sdp.nd/fish'
+        fish: `${SXP_PREFIX}/fish`
       }
     }
     if (params.extensions) {
@@ -33,7 +33,7 @@ module.exports = {
   resolveLoader: function (params = {}) {
     return Object.assign(
       {
-        root: [NODE_MODULES]
+        modules: [NODE_MODULES]
       },
       params
     )

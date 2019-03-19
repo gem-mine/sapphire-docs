@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { smart, Link, actions, urlFor } from 'cat-eye'
+import { smart, Link, actions, urlFor } from '@gem-mine/durex'
 import { VelocityComponent } from 'velocity-react'
 import style from './style'
 

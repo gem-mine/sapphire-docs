@@ -1,5 +1,5 @@
 import React from 'react'
-import { actions } from 'cat-eye'
+import { actions } from '@gem-mine/durex'
 
 export default props => {
   return (

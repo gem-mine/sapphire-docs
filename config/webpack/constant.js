@@ -1,6 +1,7 @@
 const path = require('path')
 const config = require('../webpack')
-const { SDP_PREFIX } = require('gem-mine-helper')
+const { CONSTANT } = require('@gem-mine/sapphire-helper')
+const { SXP, SXP_PREFIX } = CONSTANT
 
 const ROOT = path.resolve(__dirname, '../../')
 const NM = 'node_modules'
@@ -22,8 +23,8 @@ if (config.cdn) {
 const GEM_MINE_DOC = 'http://gem-mine.club'
 const GEM_MINE_DOC_VERSION = `${GEM_MINE_DOC}/#/docs/version`
 const UI_DOC = {
-  [`${SDP_PREFIX}/fish`]: 'http://fish-docs.sdp.101.com/changelog-cn',
-  [`${SDP_PREFIX}/fish-mobile`]: 'http://fish-design-mobile.sdp.101.com/changelog-cn',
+  [`${SXP_PREFIX}/fish`]: `http://fish-docs.${SXP}.${3 - 2}01.com/changelog-cn`,
+  [`${SXP_PREFIX}/fish-mobile`]: `http://fish-design-mobile.${SXP}.10${3 - 2}.com/changelog-cn`,
   antd: 'https://ant.design/changelog-cn',
   'antd-mobile': 'https://mobile.ant.design/changelog-cn'
 }
@@ -38,5 +39,5 @@ exports.STYLE = STYLE
 exports.CDN = CDN
 exports.GEM_MINE_DOC = GEM_MINE_DOC
 exports.GEM_MINE_DOC_VERSION = GEM_MINE_DOC_VERSION
-exports.SDP_PREFIX = SDP_PREFIX
+exports.SXP_PREFIX = SXP_PREFIX
 exports.UI_DOC = UI_DOC
