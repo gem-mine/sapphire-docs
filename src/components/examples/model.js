@@ -1,8 +1,8 @@
-import ce from '@gem-mine/durex'
+import durex from '@gem-mine/durex'
 import request from '@gem-mine/request'
 const { example } = request
 
-ce.model({
+durex.model({
   name: 'example',
   state: {
     count: 7

@@ -11,7 +11,7 @@ const isDev = process.env.isDev === 'true'
 const config = {
   mode: isDev ? 'development' : 'production',
   entry: {
-    vendor: ['react', 'react-dom', 'prop-types', 'create-react-class', '@gem-mine/durex'].concat(cfg.vendor)
+    vendor: ['react', 'react-dom', 'prop-types', 'create-react-class', '@gem-mine/durex', '@gem-mine/request', '@gem-mine/immutable'].concat(cfg.vendor)
   },
   output: helper.output.lib(),
   resolve: helper.resolve(),
