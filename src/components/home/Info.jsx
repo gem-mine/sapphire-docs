@@ -19,7 +19,7 @@ class Info extends Component {
           <button className={`${style.btn} ${style.primary}`} onClick={props.quickStart}>
             开始使用
           </button>
-          <a className={style.btn} href="https://github.com/gem-mine/gem-mine" target="_blank">
+          <a className={style.btn} href="https://github.com/gem-mine/sapphire" target="_blank">
             GitHub
           </a>
         </p>
