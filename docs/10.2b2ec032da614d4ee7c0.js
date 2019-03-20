@@ -1,2 +1,2 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{162:function(e,n,a){"use strict";a.r(n);var t=a(0),l=a.n(t),o=a(1),r=a(2),s=a.n(r);n.default=function(e){return l.a.createElement("div",null,l.a.createElement("span",null,"yyyyy "),l.a.createElement(o.Link,{className:s.a.link,to:Object(o.urlFor)("examples.permission.x")},"goto page X"))}}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{154:function(e,n,a){"use strict";a.r(n);var t=a(0),l=a.n(t),o=a(1),r=a(2),s=a.n(r);n.default=function(e){return l.a.createElement("div",null,l.a.createElement("span",null,"yyyyy "),l.a.createElement(o.Link,{className:s.a.link,to:Object(o.urlFor)("examples.permission.x")},"goto page X"))}}}]);
 //# sourceMappingURL=10.2b2ec032da614d4ee7c0.js.map
