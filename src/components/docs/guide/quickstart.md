@@ -26,7 +26,7 @@ npm start
 
 下面是一个演示视频（清晰度压缩，时间不压缩）
 
-<video src="http://dn-tomjoke.qbox.me/6.mp4" controls preload>
+<video src="https://img.zmei.me/sapphire.mp4" controls preload>
   <div class="not-support">您的浏览器不支持视频播放，<a href="http://dn-tomjoke.qbox.me/6.mp4">请点击下载视频观看</a></div>
 </video>
 

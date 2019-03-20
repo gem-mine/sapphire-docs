@@ -8,7 +8,7 @@ const isDev = process.env.isDev === 'true'
 const config = {
   mode: isDev ? 'development' : 'production',
   entry: {
-    polyfill: ['babel-polyfill']
+    polyfill: ['@babel/polyfill']
   },
   output: helper.output.lib(),
   resolve: {

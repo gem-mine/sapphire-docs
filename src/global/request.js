@@ -1,5 +1,4 @@
 /* global ENV, DEBUG */
-import '@gem-mine/durex'
 import request from '@gem-mine/request'
 import proxyConfig from 'config/proxy'
 

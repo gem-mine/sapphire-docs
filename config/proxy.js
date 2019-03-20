@@ -10,7 +10,6 @@
 
 const config = {
   example: {
-    mode: 'cors',
     wds: {
       prefix: '/v1.0',
       url: 'http://cors.zmei.me'

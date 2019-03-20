@@ -43,19 +43,19 @@
     text-align: center;
     font-weight: normal;
     margin-right: 10px;
-    border: 1px solid #22ab28;
-    color: #22ab28;
+    border: 1px solid #40a9ff;
+    color: #40a9ff;
     outline: none;
     cursor: pointer; }
   .style__main-2Yq7p .style__btn-3Lw-p:hover {
       color: #fff;
-      background: #42bd48;
-      border-color: #0e5f12;
+      background: #1890ff;
+      border-color: #1890ff;
       -webkit-transition: all 0.3s;
       transition: all 0.3s; }
   .style__main-2Yq7p .style__primary-3qltL {
-    background: #22ab28;
-    border-color: #209425;
+    background: #40a9ff;
+    border-color: #1890ff;
     color: #fff; }
 
 .style__typing-3X2qb {
@@ -74,7 +74,7 @@
   -webkit-box-shadow: 2px 1px 3px rgba(0, 0, 0, .18), -2px 1px 3px rgba(0, 0, 0, .18), 0 2px 3px rgba(0, 0, 0, .18);
           box-shadow: 2px 1px 3px rgba(0, 0, 0, .18), -2px 1px 3px rgba(0, 0, 0, .18), 0 2px 3px rgba(0, 0, 0, .18);
   background: #000;
-  color: #2acb3a; }
+  color: #40a9ff; }
   .style__console-7hyJo .style__header-3plip {
     height: 28px;
     background: #e0e0e0; }
@@ -222,10 +222,10 @@
       padding-left: 8px; }
 
 .style__aside-16alh li a.style__highlight-gK8We {
-        background: #d9f7be;
-        color: #22ab28;
+        background: #e6f7ff;
+        color: #1890ff;
         padding-left: 5px;
-        border-left: 3px solid #237804; }
+        border-left: 3px solid #1890ff; }
 
 .style__content-3AVnB {
   margin: 0 auto;
@@ -1510,7 +1510,7 @@ body a {
   text-decoration: none; }
 
 body a:hover {
-    color: #148a1a; }
+    color: #40a9ff; }
 
 h1,
 h2,
@@ -1549,6 +1549,9 @@ p {
 .gray {
   color: #bfbfbf; }
 
+.delete {
+  text-decoration: line-through; }
+
 .clear::after {
   display: block;
   clear: both;
@@ -1558,19 +1561,27 @@ p {
 .hljs {
   color: #666; }
 
+.markdown-body {
+  color: #314659;
+  font-size: 14px;
+  line-height: 2; }
+
 .markdown-body .center {
-  margin: 0 auto;
-  display: block; }
+    margin: 0 auto;
+    display: block; }
 
 .markdown-body .thumb {
-  width: 200px; }
+    width: 200px; }
 
 .markdown-body .tip {
-  color: #888; }
+    color: #888; }
 
 .markdown-body code {
-  background-color: #abe090;
-  color: #333; }
+    background-color: #abe090;
+    color: #333; }
+
+.markdown-body li > p {
+    margin-bottom: 2px; }
 
 video {
   width: 100%;
@@ -1602,16 +1613,15 @@ video .not-support {
       letter-spacing: 0.5px;
       font-weight: 500; }
   .style__nav-p38Qa .style__header-1HZYQ a:hover {
-        color: #22ab28;
+        color: #40a9ff;
         -webkit-transition: 0.6s all;
         transition: 0.6s all; }
   .style__nav-p38Qa .style__header-1HZYQ a.style__highlight-2h-QL {
-        color: #22ab28;
+        color: #40a9ff;
         font-weight: bold; }
   .style__nav-p38Qa .style__logo-2F0cl {
     margin: 0;
-    float: left;
-    padding-top: 2px; }
+    float: left; }
   .style__nav-p38Qa .style__logo-2F0cl img {
       width: 32px;
       height: 32px;
@@ -1627,7 +1637,7 @@ video .not-support {
     width: 100px;
     height: 32px;
     display: inline-block;
-    background-image: url("https://img.shields.io/npm/v/gem-mine.svg");
+    background-image: url("https://img.shields.io/npm/v/%40gem-mine/sapphire.svg");
     background-repeat: no-repeat; }
   .style__nav-p38Qa .style__items-3KtOR {
     float: right;
@@ -1673,4 +1683,4 @@ video .not-support {
       margin: 30px 0 0 20px; }
 
 
-/*# sourceMappingURL=main.6099b94969d5f12060f7.css.map*/
+/*# sourceMappingURL=main.42f2dcb219e3cea3efbd.css.map*/

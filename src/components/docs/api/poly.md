@@ -1,13 +1,13 @@
-# cat-eye api 速查
+# api 速查
 
 ## model
 
-* 定义 model
+- 定义 model
 
-```javascript
-import ce from 'cat-eye'
+```js
+import durex from '@gem-mine/durex'
 
-ce.model({
+durex.model({
   name: 'user',
   state: {},
   reducers: {
@@ -26,10 +26,10 @@ ce.model({
 })
 ```
 
-* 连接组件 smart、使用 actions
+- 连接组件 smart、使用 actions
 
 ```javascript
-import { smart, actions } from 'cat-eye'
+import { smart, actions } from '@gem-mine/durex'
 
 smart(
   state => {
@@ -50,7 +50,7 @@ smart(
 actions 上默认具有 routing 对象，可以操作浏览器的地址：
 
 ```jsx
-import { actions, urlFor } from 'cat-eye'
+import { actions, urlFor } from '@gem-mine/durex'
 
 actions.routing.push(urlFor('examples')) // 跳转，并写入浏览器历史
 actions.routing.replace(urlFor('examples')) // 跳转，但不写入浏览器历史
@@ -59,10 +59,10 @@ actions.routing.goBack() // 回退
 
 ## router
 
-* 路由 配置与声明
+- 路由 配置与声明
 
-```javascript
-import { router } from 'cat-eye'
+```js
+import { router } from '@gem-mine/durex'
 
 // 参见 src/global/request.js
 router.config({})
@@ -70,10 +70,10 @@ router.config({})
 router.register({})
 ```
 
-* 路由使用
+- 路由使用
 
-```javascript
-import {Routes} from 'cat-eye'
+```js
+import { Routes } from '@gem-mine/durex'
 
 <Routes />
 
@@ -82,20 +82,20 @@ import {Routes} from 'cat-eye'
 
 ## request
 
-* 请求配置
+- 请求配置
 
-```javascript
-// 参见 config/proxy.js
-import { request } from 'cat-eye'
+```js
+// 参见 src/global/request.js
+import { request } from '@gem-mine/request'
 
 request.config({})
 ```
 
-* 切面配置
+- 切面配置
 
-```javascript
+```js
 // 参见 src/global/request.js
-import { request } from 'cat-eye'
+import { request } from '@gem-mine/request'
 
 // 全局配置
 request.config({})
@@ -104,10 +104,10 @@ request.config({})
 request.api.config({})
 ```
 
-* 使用
+- 使用
 
-```javascript
-import { request } from 'cat-eye'
+```js
+import { request } from '@gem-mine/request'
 const { api } = request
 
 // 参数同 axios
@@ -116,11 +116,11 @@ api.get(url, {}).then(res => {})
 
 ## tool
 
-* immutable
+- immutable
 
-```javascript
-// 详细使用参看 zero-immutable: https://github.com/gem-mine/zero-immutable
-import { setIn, getIn } from 'cat-eye'
+```js
+// 详细使用参看 @gem-mine/immutable: https://github.com/gem-mine/immutable
+import { setIn, getIn } from '@gem-mine/immutable'
 
 // 设置
 setIn(object, {})
@@ -129,10 +129,10 @@ setIn(object, {})
 getIn(object, keyPath)
 ```
 
-* URL 处理
+- URL 处理
 
-```javascript
-import { queryString } from 'cat-eye'
+```js
+import { queryString } from '@gem-mine/durex'
 
 // 解析查询参数
 queryString.parse(url)
@@ -145,8 +145,8 @@ queryString.stringify(url, {
 
 通过 urlFor 结合路由生成 url：
 
-```javascript
-import { urlFor } from 'cat-eye'
+```js
+import { urlFor } from '@gem-mine/durex'
 
 // 可以处理路径参数和查询参数
 urlFor('main.home', {
@@ -154,10 +154,10 @@ urlFor('main.home', {
 })
 ```
 
-* 从 path 解析成正则
+- 从 path 解析成正则
 
-```javascript
-import { pathToRegexp } from 'cat-eye'
+```js
+import { pathToRegexp } from '@gem-mine/durex'
 
 const path = '/topics/:id'
 
@@ -165,14 +165,14 @@ const path = '/topics/:id'
 const reg = pathToRegexp(path)
 ```
 
-* 获取 store
+- 获取 store
 
 组件中可以通过 smart 注入，model 中可以通过 this.getState, getState 参数获取。
 
 其他地方可以通过 getState 来获取
 
-```javascript
-import { getState } from 'cat-eye'
+```js
+import { getState } from '@gem-mine/durex'
 
 const store = getState()
 ```
