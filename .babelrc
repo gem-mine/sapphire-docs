@@ -1,5 +1,8 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
   "plugins": [
     "@babel/plugin-transform-object-assign",
     "@babel/plugin-syntax-dynamic-import",
@@ -10,6 +13,17 @@
         "regenerator": true
       }
     ],
-    "@babel/plugin-proposal-class-properties"
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
   ]
 }

@@ -5,6 +5,13 @@ const { SRC } = require('./constant')
 const { helper, join, preBuild } = require('./helper')
 const custom = require('../webpack')
 
+const kill = require('tree-kill')
+
+const pid = process.pid
+process.on('SIGINT', function () {
+  kill(pid, 'SIGKILL')
+})
+
 const isHot = process.env.npm_config_hot !== ''
 const shouldAnalyzer = !!process.env.npm_config_analyzer
 
